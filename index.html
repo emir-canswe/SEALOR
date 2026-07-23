@@ -290,17 +290,17 @@
         }
 
         header.out-of-hero .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(255, 255, 255, 0.65) !important;
         }
         header.out-of-hero .nav-link:hover {
             color: #ffffff !important;
         }
         header.out-of-hero .nav-link.active-section {
-            color: #6366f1 !important;
+            color: #ffffff !important;
         }
         header.out-of-hero .nav-link.active-section::before {
-            background-color: #6366f1 !important;
-            box-shadow: 0 0 8px #6366f1 !important;
+            background-color: #C9A227 !important;
+            box-shadow: 0 0 8px #C9A227 !important;
         }
         header.out-of-hero .nav-hover-bg {
             background-color: rgba(255, 255, 255, 0.08) !important;
@@ -356,9 +356,18 @@
         .nav-link {
             position: relative;
             z-index: 1;
-            padding: 8px 16px !important; /* 16px padding is perfectly balanced */
+            padding: 8px 16px !important;
             border-radius: 9999px;
-            transition: color 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.03em;
+            color: rgba(10, 46, 92, 0.65) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0A2E5C !important;
         }
         
         .nav-link::after {
@@ -367,7 +376,7 @@
         
         /* Active Link Indicator Dot */
         .nav-link.active-section {
-            color: #6366f1 !important;
+            color: #0A2E5C !important;
         }
         
         .nav-link.active-section::before {
@@ -379,8 +388,8 @@
             width: 4px;
             height: 4px;
             border-radius: 50%;
-            background-color: #6366f1;
-            box-shadow: 0 0 8px #6366f1;
+            background-color: #C9A227;
+            box-shadow: 0 0 8px #C9A227;
         }
 
         /* Dropdowns */
