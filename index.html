@@ -258,7 +258,12 @@
             padding-bottom: 10px;
             border-bottom-left-radius: 1.5rem;
             border-bottom-right-radius: 1.5rem;
-            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+            background-color: #020617 !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 10px 25px -10px rgba(2, 6, 23, 0.25);
+        }
+        header.scrolled .logo-container span {
+            color: #ffffff !important;
         }
 
         .menu-pill {
@@ -268,7 +273,56 @@
         header.scrolled .menu-pill {
             padding-top: 8px;
             padding-bottom: 8px;
-            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+            background-color: rgba(2, 6, 23, 0.92) !important;
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 10px 25px -10px rgba(2, 6, 23, 0.3);
+        }
+
+        header.scrolled .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        header.scrolled .nav-link:hover {
+            color: #ffffff !important;
+        }
+        header.scrolled .nav-link.active-section {
+            color: #6366f1 !important;
+        }
+        header.scrolled .nav-link.active-section::before {
+            background-color: #6366f1 !important;
+            box-shadow: 0 0 8px #6366f1 !important;
+        }
+        header.scrolled .nav-hover-bg {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        header.scrolled .nav-divider {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        header.scrolled .menu-pill button[onclick="openQuoteModal()"] {
+            background-color: #ffffff !important;
+            color: #020617 !important;
+        }
+        header.scrolled .menu-pill button[onclick="openQuoteModal()"]:hover {
+            background-color: #6366f1 !important;
+            color: #ffffff !important;
+        }
+
+        header.scrolled #lang-btn {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+            background-color: transparent !important;
+        }
+        header.scrolled #lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        header.scrolled #lang-btn span {
+            color: #ffffff !important;
+        }
+
+        header.scrolled #hamburger-btn span {
+            color: #ffffff !important;
         }
 
         /* Nav hover indicator container */
