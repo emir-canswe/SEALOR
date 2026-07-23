@@ -283,24 +283,26 @@
         }
 
         header.out-of-hero .menu-pill {
-            background-color: rgba(2, 6, 23, 0.92) !important;
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 0 10px 25px -10px rgba(2, 6, 23, 0.3);
+            background-color: rgba(2, 6, 23, 0.95) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            box-shadow: 0 10px 40px -10px rgba(2, 6, 23, 0.5);
         }
 
         header.out-of-hero .nav-link {
-            color: rgba(255, 255, 255, 0.65) !important;
+            color: rgba(255, 255, 255, 0.75) !important;
         }
         header.out-of-hero .nav-link:hover {
             color: #ffffff !important;
         }
         header.out-of-hero .nav-link.active-section {
             color: #ffffff !important;
+            font-weight: 700 !important;
         }
         header.out-of-hero .nav-link.active-section::before {
             background-color: #C9A227 !important;
-            box-shadow: 0 0 8px #C9A227 !important;
+            box-shadow: 0 0 10px #C9A227 !important;
         }
         header.out-of-hero .nav-hover-bg {
             background-color: rgba(255, 255, 255, 0.08) !important;
@@ -310,13 +312,17 @@
             background-color: rgba(255, 255, 255, 0.2) !important;
         }
 
-        header.out-of-hero .menu-pill button[onclick="openQuoteModal()"] {
+        /* Talep Oluştur butonu - out-of-hero (hidden md:block = sadece bu buton) */
+        header.out-of-hero .menu-pill .flex > button.hidden,
+        header.out-of-hero .menu-pill > div > button[data-i18n="btnCreateQuote"],
+        header.out-of-hero [data-i18n="btnCreateQuote"] {
+            background-color: #C9A227 !important;
+            color: #020617 !important;
+            font-weight: 800 !important;
+        }
+        header.out-of-hero [data-i18n="btnCreateQuote"]:hover {
             background-color: #ffffff !important;
             color: #020617 !important;
-        }
-        header.out-of-hero .menu-pill button[onclick="openQuoteModal()"]:hover {
-            background-color: #6366f1 !important;
-            color: #ffffff !important;
         }
 
         header.out-of-hero #lang-btn {
@@ -356,13 +362,14 @@
         .nav-link {
             position: relative;
             z-index: 1;
-            padding: 8px 16px !important;
+            padding: 10px 16px !important;
             border-radius: 9999px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 13px !important;
+            font-size: 15px !important;
             font-weight: 600 !important;
-            letter-spacing: 0.03em;
-            color: rgba(10, 46, 92, 0.65) !important;
+            letter-spacing: 0.02em;
+            /* Hero içindeyken: beyaz pill üzerinde lacivert */
+            color: rgba(10, 46, 92, 0.75) !important;
             transition: all 0.3s ease;
         }
         
@@ -377,6 +384,7 @@
         /* Active Link Indicator Dot */
         .nav-link.active-section {
             color: #0A2E5C !important;
+            font-weight: 700 !important;
         }
         
         .nav-link.active-section::before {
@@ -385,8 +393,8 @@
             bottom: 2px;
             left: 50%;
             transform: translateX(-50%);
-            width: 4px;
-            height: 4px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background-color: #C9A227;
             box-shadow: 0 0 8px #C9A227;
