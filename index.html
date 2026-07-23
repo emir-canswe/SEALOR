@@ -531,10 +531,10 @@
             border-top: 4px solid #C9A227;
         }
 
-        /* Sürdürülebilirlik — Koyu yeşil */
+        /* Sürdürülebilirlik — Beyaz/açık arka plan */
         #surdurulebilirlik {
-            background: linear-gradient(180deg, #04160e 0%, #072212 50%, #0a2e18 100%) !important;
-            border-top: 4px solid #22c55e;
+            background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
+            border-top: 4px solid #16a34a;
         }
 
         /* SSS/FAQ — Saf beyaz, temiz */
@@ -590,15 +590,27 @@
         #faq button { color: #1e293b !important; }
         #faq .text-secondary { color: #C9A227 !important; }
 
-        /* Sürdürülebilirlik bölümü yazıları beyaz */
+        /* Sürdürülebilirlik — koyu yazılar açık arka plan için */
         #surdurulebilirlik h2,
         #surdurulebilirlik h3,
         #surdurulebilirlik p,
         #surdurulebilirlik span,
         #surdurulebilirlik .text-primary {
+            color: #0A2E5C !important;
+        }
+        #surdurulebilirlik .text-on-surface-variant { color: #475569 !important; }
+        #surdurulebilirlik .text-secondary { color: #16a34a !important; }
+        /* Taahhütler kartı koyu kalabilir */
+        #surdurulebilirlik .bg-primary,
+        #surdurulebilirlik [class*="bg-slate"],
+        #surdurulebilirlik [class*="bg-[#"] {
             color: #fff !important;
         }
-        #surdurulebilirlik .text-on-surface-variant { color: rgba(255,255,255,0.65) !important; }
+        #surdurulebilirlik .bg-primary h3,
+        #surdurulebilirlik .bg-primary p,
+        #surdurulebilirlik .bg-primary span {
+            color: #fff !important;
+        }
 
         /* ══ HİZMETLER KARTLARI — Her kart farklı renk ══ */
         /* Kart 1: Dış Ticaret — Lacivert vurgu */
