@@ -236,25 +236,130 @@
         .hover-glow:hover {
             animation: pulseGlow 2s infinite;
         }
+
+        /* Floating Navbar on Scroll Styles */
+        header {
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        header.floating-active {
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 1200px;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.85); /* Dark slate translucent glass */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(99, 102, 241, 0.1), 0 10px 20px -10px rgba(99, 102, 241, 0.2);
+        }
+        header.floating-active .header-inner {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+        header.floating-active .text-primary {
+            color: #ffffff !important;
+        }
+        header.floating-active .nav-link {
+            color: #94a3b8 !important;
+        }
+        header.floating-active .nav-link:hover {
+            color: #ffffff !important;
+        }
+        header.floating-active #lang-btn span,
+        header.floating-active #profile-btn span,
+        header.floating-active #hamburger-btn span {
+            color: #cbd5e1 !important;
+        }
+        header.floating-active #lang-btn:hover,
+        header.floating-active #profile-btn:hover,
+        header.floating-active #hamburger-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        header.floating-active #profile-btn {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+        header.floating-active #lang-btn:hover span,
+        header.floating-active #profile-btn:hover span,
+        header.floating-active #hamburger-btn:hover span {
+            color: #ffffff !important;
+        }
+
+        /* Pill Link Hover Background Effect */
+        .nav-link {
+            position: relative;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .nav-link::after {
+            display: none !important; /* Hide old underline line */
+        }
+        .nav-link:hover {
+            background-color: rgba(99, 102, 241, 0.08) !important;
+            color: #6366f1 !important;
+            transform: translateY(-1px);
+        }
+        header.floating-active .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: #ffffff !important;
+            transform: translateY(-1px);
+        }
+
+        /* 3D Rotating Monogram Logo */
+        .logo-container {
+            perspective: 1000px;
+        }
+        .logo-icon-3d {
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+        .group:hover .logo-icon-3d {
+            transform: rotateY(180deg) scale(1.1);
+        }
+
+        /* Elastic Dropdown Transitions */
+        #lang-dropdown, #profile-dropdown {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+            transform: scale(0.9) translateY(-10px);
+            opacity: 0;
+            pointer-events: none;
+            display: block !important;
+        }
+        #lang-dropdown.dropdown-active, #profile-dropdown.dropdown-active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Floating Navbar RTL Overrides */
+        html[dir="rtl"] header.floating-active {
+            left: auto;
+            right: 50%;
+            transform: translateX(50%);
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary/20 selection:text-secondary">
 
     <!-- Navigation Header -->
     <header class="glass-nav border-b border-outline-variant/50 fixed top-0 left-0 w-full z-[100]">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6 flex justify-between items-center">
+        <div class="header-inner max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6 flex justify-between items-center transition-all duration-500">
             
             <!-- Brand Logo -->
-            <div class="flex items-center gap-4 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="SEALOR Ana Sayfa">
-                <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-xl shadow-lg shadow-primary/10 group-hover:bg-secondary transition-colors duration-500">
-                    <svg class="w-6 h-6 text-white transition-transform duration-500 group-hover:scale-110" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="flex items-center gap-4 group cursor-pointer logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="SEALOR Ana Sayfa">
+                <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-xl shadow-lg shadow-primary/10 group-hover:bg-secondary transition-colors duration-500 logo-icon-3d">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <polygon points="16,4 28,10 16,16 4,10" fill="#a5b4fc"/>
                         <polygon points="4,10 16,16 16,28 4,22" fill="#6366f1"/>
                         <polygon points="16,16 28,10 28,22 16,28" fill="#4f46e5"/>
                         <path d="M10,8 L16,11 L22,8 M10,13 L16,16 L16,22 M16,16 L22,13" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                     </svg>
                 </div>
-                <span class="font-display-lg text-2xl font-extrabold tracking-tight text-primary">SEALOR</span>
+                <span class="font-display-lg text-2xl font-extrabold tracking-tight text-primary transition-colors duration-500">SEALOR</span>
             </div>
             
             <!-- Desktop Navigation Menu -->
@@ -277,7 +382,7 @@
                     <button id="lang-btn" onclick="toggleLangDropdown()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors" aria-label="Dil Seçimi (Language)" aria-haspopup="true" aria-expanded="false">
                         <span class="material-symbols-outlined text-[20px] text-on-surface-variant">language</span>
                     </button>
-                    <div id="lang-dropdown" class="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-48 bg-white border border-outline-variant/30 rounded-2xl shadow-xl z-50 p-2 hidden scale-95 opacity-0 origin-top-right rtl:origin-top-left transition-all duration-200">
+                    <div id="lang-dropdown" class="absolute right-0 rtl:left-0 rtl:right-auto mt-3 w-48 bg-white border border-outline-variant/30 rounded-2xl shadow-2xl z-50 p-2 hidden origin-top-right rtl:origin-top-left">
                         <button onclick="changeLanguage('TR')" class="w-full text-left rtl:text-right px-4 py-3 text-sm font-semibold rounded-xl hover:bg-slate-50 text-primary flex items-center justify-between">
                             <span>Türkçe (TR)</span>
                             <span id="check-tr" class="material-symbols-outlined text-secondary text-sm">check</span>
@@ -298,7 +403,7 @@
                     <button id="profile-btn" onclick="toggleProfileDropdown()" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition-colors" aria-label="Kullanıcı Paneli" aria-haspopup="true" aria-expanded="false">
                         <span class="material-symbols-outlined text-[20px] text-primary">person</span>
                     </button>
-                    <div id="profile-dropdown" class="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-72 bg-white border border-outline-variant/30 rounded-3xl shadow-xl z-50 p-6 hidden scale-95 opacity-0 origin-top-right rtl:origin-top-left transition-all duration-200">
+                    <div id="profile-dropdown" class="absolute right-0 rtl:left-0 rtl:right-auto mt-3 w-72 bg-white border border-outline-variant/30 rounded-3xl shadow-2xl z-50 p-6 hidden origin-top-right rtl:origin-top-left">
                         <div class="flex items-center gap-4 border-b border-outline-variant/30 pb-4 mb-4">
                             <div class="w-12 h-12 bg-secondary/15 rounded-full flex items-center justify-center">
                                 <span class="material-symbols-outlined text-secondary text-2xl">business</span>
@@ -1602,7 +1707,7 @@
                 if (targetElement) {
                     const offset = 88; // Height of header
                     const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    const offsetPosition = elementPosition + window.scrollY - offset;
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
@@ -1611,20 +1716,30 @@
             });
         });
 
-        // Dropdown Menu Toggles
+        // Floating Navbar scroll listener
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 30) {
+                header.classList.add('floating-active');
+            } else {
+                header.classList.remove('floating-active');
+            }
+        });
+
+        // Dropdown Menu Toggles with Easing
         function toggleLangDropdown() {
             const dropdown = document.getElementById('lang-dropdown');
             const btn = document.getElementById('lang-btn');
-            const isHidden = dropdown.classList.contains('hidden');
+            const isActive = dropdown.classList.contains('dropdown-active');
             
             closeAllDropdowns();
             
-            if (isHidden) {
+            if (!isActive) {
                 dropdown.classList.remove('hidden');
                 btn.setAttribute('aria-expanded', 'true');
-                setTimeout(() => {
-                    dropdown.classList.remove('scale-95', 'opacity-0');
-                }, 10);
+                // Force layout reflow to trigger transition
+                dropdown.offsetHeight;
+                dropdown.classList.add('dropdown-active');
             }
         }
 
@@ -1632,16 +1747,16 @@
         function toggleProfileDropdown() {
             const dropdown = document.getElementById('profile-dropdown');
             const btn = document.getElementById('profile-btn');
-            const isHidden = dropdown.classList.contains('hidden');
+            const isActive = dropdown.classList.contains('dropdown-active');
             
             closeAllDropdowns();
             
-            if (isHidden) {
+            if (!isActive) {
                 dropdown.classList.remove('hidden');
                 btn.setAttribute('aria-expanded', 'true');
-                setTimeout(() => {
-                    dropdown.classList.remove('scale-95', 'opacity-0');
-                }, 10);
+                // Force layout reflow to trigger transition
+                dropdown.offsetHeight;
+                dropdown.classList.add('dropdown-active');
             }
         }
 
@@ -1652,11 +1767,14 @@
             
             dropdowns.forEach(id => {
                 const el = document.getElementById(id);
-                if (el && !el.classList.contains('hidden')) {
-                    el.classList.add('scale-95', 'opacity-0');
+                if (el && el.classList.contains('dropdown-active')) {
+                    el.classList.remove('dropdown-active');
+                    // Wait for transition before hiding element
                     setTimeout(() => {
-                        el.classList.add('hidden');
-                    }, 200);
+                        if (!el.classList.contains('dropdown-active')) {
+                            el.classList.add('hidden');
+                        }
+                    }, 400);
                 }
             });
             
