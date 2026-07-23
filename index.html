@@ -237,25 +237,88 @@
             animation: pulseGlow 2s infinite;
         }
 
+        /* Ultra-Stylish Floating Navbar */
+        header {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Floating Navbar active state */
+        header.floating-active {
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 1200px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.8) !important;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            backdrop-filter: blur(20px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+            box-shadow: 
+                0 10px 30px -10px rgba(15, 23, 42, 0.08), 
+                0 1px 3px rgba(99, 102, 241, 0.05),
+                0 0 20px 2px rgba(99, 102, 241, 0.03);
+        }
+        
+        header.floating-active > div {
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+
+        /* Nav hover indicator container */
+        nav {
+            position: relative;
+        }
+
+        /* The sliding hover backdrop */
+        .nav-hover-bg {
+            position: absolute;
+            background-color: rgba(99, 102, 241, 0.08);
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+            opacity: 0;
+            z-index: 0;
+            transform: scale(0.95);
+        }
+
         /* Navigation Links Pill Hover Effect */
         .nav-link {
             position: relative;
+            z-index: 1;
             padding: 8px 20px;
             border-radius: 9999px;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: color 0.3s ease;
         }
+        
         .nav-link::after {
-            display: none !important; /* Hide old underline line */
+            display: none !important;
         }
-        .nav-link:hover {
-            background-color: rgba(99, 102, 241, 0.08) !important;
+        
+        /* Active Link Indicator Dot */
+        .nav-link.active-section {
             color: #6366f1 !important;
         }
+        
+        .nav-link.active-section::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #6366f1;
+            box-shadow: 0 0 8px #6366f1;
+        }
 
-        /* Standard Dropdown Transitions */
+        /* Dropdowns */
         #lang-dropdown, #profile-dropdown {
-            transition: opacity 0.2s ease, transform 0.2s ease !important;
-            transform: scale(0.95) translateY(-5px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+            transform: scale(0.95) translateY(-10px);
             opacity: 0;
             pointer-events: none;
             display: block !important;
@@ -264,6 +327,33 @@
             transform: scale(1) translateY(0);
             opacity: 1;
             pointer-events: auto;
+        }
+
+        /* Scroll Progress Line */
+        .scroll-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2.5px;
+            background: linear-gradient(to right, #6366f1, #a5b4fc, #6366f1);
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+            width: 0%;
+            transition: width 0.1s ease;
+            border-bottom-left-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+            opacity: 0.9;
+        }
+        
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Floating Navbar RTL Overrides */
+        html[dir="rtl"] header.floating-active {
+            left: auto;
+            right: 50%;
+            transform: translateX(50%);
         }
 
         /* Responsive Section Padding Override */
@@ -373,6 +463,8 @@
                 </button>
             </div>
         </div>
+        <!-- Scroll Progress Indicator -->
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
     </header>
 
     <!-- Mobile Drawer Navigation -->
@@ -2050,6 +2142,79 @@
             modal.classList.remove('flex');
             document.body.style.overflow = '';
         }
+
+        // Floating header scroll listener & progress bar update
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const progress = document.getElementById('scroll-progress');
+            
+            if (window.scrollY > 30) {
+                header.classList.add('floating-active');
+            } else {
+                header.classList.remove('floating-active');
+            }
+
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            if (progress) progress.style.width = scrolled + '%';
+        });
+
+        // Sliding Navigation Hover Backdrop & Active Dot Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav');
+            const hoverBg = document.createElement('div');
+            hoverBg.className = 'nav-hover-bg';
+            nav.appendChild(hoverBg);
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    const rect = link.getBoundingClientRect();
+                    const navRect = nav.getBoundingClientRect();
+                    
+                    const leftPosition = rect.left - navRect.left;
+                    
+                    hoverBg.style.width = `${rect.width}px`;
+                    hoverBg.style.height = `${rect.height}px`;
+                    hoverBg.style.left = `${leftPosition}px`;
+                    hoverBg.style.top = `${rect.top - navRect.top}px`;
+                    hoverBg.style.opacity = '1';
+                    hoverBg.style.transform = 'scale(1)';
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    hoverBg.style.opacity = '0';
+                    hoverBg.style.transform = 'scale(0.95)';
+                });
+            });
+
+            // Intersection Observer to active link on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active-section');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active-section');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
     </script>
 </body>
 </html>
