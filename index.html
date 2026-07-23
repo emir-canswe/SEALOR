@@ -239,14 +239,14 @@
             animation: pulseGlow 2s infinite;
         }
 
-        /* Ultra-Stylish Split Navbar */
+        /* Ultra-Stylish Split Navbar — PRO BÜYÜK */
         header {
-            padding-top: 16px;
+            padding-top: 20px;
             transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         header.scrolled {
-            padding-top: 8px;
+            padding-top: 10px;
         }
 
         .logo-container {
@@ -254,11 +254,11 @@
         }
 
         header.scrolled .logo-container {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-bottom-left-radius: 1.5rem;
-            border-bottom-right-radius: 1.5rem;
-            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+            padding-top: 14px;
+            padding-bottom: 14px;
+            border-bottom-left-radius: 1.75rem;
+            border-bottom-right-radius: 1.75rem;
+            box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.12);
         }
 
         .menu-pill {
@@ -266,9 +266,9 @@
         }
 
         header.scrolled .menu-pill {
-            padding-top: 8px;
-            padding-bottom: 8px;
-            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+            padding-top: 12px;
+            padding-bottom: 12px;
+            box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.12);
         }
 
         /* Out-Of-Hero Koyu Temalı Durum (Leaves Hero -> Black Theme) */
@@ -592,42 +592,42 @@
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary/20 selection:text-secondary">
 
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 w-full z-[100] transition-all duration-500 pointer-events-none pt-4">
+    <header class="fixed top-0 left-0 w-full z-[100] transition-all duration-500 pointer-events-none pt-5">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center w-full">
             
             <!-- Brand Logo Box (Left) -->
-            <div class="logo-container pointer-events-auto bg-white px-5 py-3.5 rounded-b-2xl md:rounded-b-[2rem] border-b border-r border-l border-outline-variant/30 shadow-lg shadow-primary/5 flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:shadow-primary/10" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="SEALOR Ana Sayfa">
-                <div class="w-8 h-8 md:w-9 md:h-9 overflow-hidden rounded-xl shadow-md border border-slate-100">
+            <div class="logo-container pointer-events-auto bg-white px-7 py-5 rounded-b-3xl md:rounded-b-[2.5rem] border-b border-r border-l border-outline-variant/30 shadow-xl shadow-primary/8 flex items-center gap-4 group cursor-pointer transition-all duration-300 hover:shadow-primary/15" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="SEALOR Ana Sayfa">
+                <div class="w-11 h-11 md:w-13 md:h-13 overflow-hidden rounded-2xl shadow-lg border border-slate-100">
                     <img src="./sealor_logo.jpg" alt="SEALOR Logo" class="w-full h-full object-cover" />
                 </div>
-                <span class="font-display-lg text-lg md:text-2xl font-extrabold tracking-tight text-primary">SEALOR</span>
+                <span class="font-display-lg text-xl md:text-3xl font-extrabold tracking-tight text-primary">SEALOR</span>
             </div>
             
             <!-- Floating Menu Pill (Right) -->
-            <div class="menu-pill pointer-events-auto flex items-center gap-6 md:gap-8 bg-white/90 backdrop-blur-md border border-outline-variant/40 px-5 py-2.5 rounded-full shadow-lg shadow-primary/5 hover:border-primary/20 transition-all duration-300">
+            <div class="menu-pill pointer-events-auto flex items-center gap-8 md:gap-10 bg-white/92 backdrop-blur-xl border border-outline-variant/50 px-8 py-4 rounded-full shadow-xl shadow-primary/8 hover:border-primary/25 transition-all duration-300">
                 <!-- Desktop Navigation Menu -->
-                <nav class="hidden lg:flex items-center gap-1" aria-label="Ana Menü">
-                    <a class="nav-link relative text-sm font-semibold tracking-wide text-primary" href="#hakkimizda" data-i18n="navAbout">Hakkımızda</a>
-                    <a class="nav-link relative text-sm font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors" href="#hizmetler" data-i18n="navServices">Hizmetler</a>
-                    <a class="nav-link relative text-sm font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors" href="#surdurulebilirlik" data-i18n="navSustainability">Sürdürülebilirlik</a>
-                    <a class="nav-link relative text-sm font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors" href="#iletisim" data-i18n="navContact">İletişim</a>
+                <nav class="hidden lg:flex items-center gap-2" aria-label="Ana Menü">
+                    <a class="nav-link relative text-[15px] font-bold tracking-wide text-primary px-3 py-1" href="#hakkimizda" data-i18n="navAbout">Hakkımızda</a>
+                    <a class="nav-link relative text-[15px] font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors px-3 py-1" href="#hizmetler" data-i18n="navServices">Hizmetler</a>
+                    <a class="nav-link relative text-[15px] font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors px-3 py-1" href="#surdurulebilirlik" data-i18n="navSustainability">Sürdürülebilirlik</a>
+                    <a class="nav-link relative text-[15px] font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors px-3 py-1" href="#iletisim" data-i18n="navContact">İletişim</a>
                 </nav>
                 
                 <!-- Divider (hidden on mobile, visible on desktop) -->
-                <div class="nav-divider hidden lg:block h-5 w-[1px] bg-outline-variant/50"></div>
+                <div class="nav-divider hidden lg:block h-7 w-[1.5px] bg-outline-variant/60"></div>
 
                 <!-- Navigation Actions -->
-                <div class="flex items-center gap-3 md:gap-4">
-                    <button onclick="openQuoteModal()" class="hidden md:block px-6 py-2.5 bg-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full hover:bg-secondary hover:shadow-lg transition-all duration-300" data-i18n="btnCreateQuote">
+                <div class="flex items-center gap-4 md:gap-5">
+                    <button onclick="openQuoteModal()" class="hidden md:block px-8 py-3.5 bg-primary text-white text-[12px] font-bold uppercase tracking-[0.18em] rounded-full hover:bg-secondary hover:shadow-xl transition-all duration-300 shadow-md shadow-primary/20" data-i18n="btnCreateQuote">
                         Talep Oluştur
                     </button>
                     
                     <!-- Language Menu -->
                     <div class="relative">
-                        <button id="lang-btn" onclick="toggleLangDropdown()" class="px-3 py-1.5 hover:bg-slate-100 border border-outline-variant/50 hover:border-primary/30 text-primary rounded-full font-bold text-[10px] uppercase tracking-wider transition-all flex items-center gap-1.5" aria-label="Dil Seçimi (Language)" aria-haspopup="true" aria-expanded="false">
-                            <span class="material-symbols-outlined text-[14px] text-primary">language</span>
-                            <span id="current-lang-label" class="text-primary font-bold text-[10px]">TR</span>
-                            <span class="material-symbols-outlined text-[12px] text-on-surface-variant/75">keyboard_arrow_down</span>
+                        <button id="lang-btn" onclick="toggleLangDropdown()" class="px-4 py-2.5 hover:bg-slate-100 border border-outline-variant/50 hover:border-primary/30 text-primary rounded-full font-bold text-[11px] uppercase tracking-wider transition-all flex items-center gap-2" aria-label="Dil Seçimi (Language)" aria-haspopup="true" aria-expanded="false">
+                            <span class="material-symbols-outlined text-[18px] text-primary">language</span>
+                            <span id="current-lang-label" class="text-primary font-bold text-[12px]">TR</span>
+                            <span class="material-symbols-outlined text-[14px] text-on-surface-variant/75">keyboard_arrow_down</span>
                         </button>
                         <div id="lang-dropdown" class="absolute right-0 rtl:left-0 rtl:right-auto mt-3 w-42 bg-white border border-outline-variant/30 rounded-2xl shadow-2xl z-50 p-1.5 hidden origin-top-right rtl:origin-top-left">
                             <button id="lang-opt-tr" onclick="changeLanguage('TR')" class="w-full text-left rtl:text-right px-3 py-2 text-xs font-semibold rounded-lg bg-secondary/10 text-secondary flex items-center justify-between">
@@ -646,8 +646,8 @@
                     </div>
                     
                     <!-- Hamburger Button for Mobile -->
-                    <button onclick="toggleMobileMenu()" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors" id="hamburger-btn">
-                        <span class="material-symbols-outlined text-primary text-xl">menu</span>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors" id="hamburger-btn">
+                        <span class="material-symbols-outlined text-primary text-2xl">menu</span>
                     </button>
                 </div>
             </div>
