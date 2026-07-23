@@ -269,6 +269,67 @@
             box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
         }
 
+        /* In-Hero Koyu Temalı Durum */
+        header.in-hero .logo-container {
+            background-color: #0A2E5C !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        header.in-hero .logo-container span {
+            color: #ffffff !important;
+        }
+
+        header.in-hero .menu-pill {
+            background-color: rgba(10, 46, 92, 0.95) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 10px 30px -10px rgba(10, 46, 92, 0.2);
+        }
+
+        header.in-hero .nav-link {
+            color: rgba(255, 255, 255, 0.75) !important;
+        }
+        header.in-hero .nav-link:hover {
+            color: #ffffff !important;
+        }
+        header.in-hero .nav-link.active-section {
+            color: #C9A227 !important;
+        }
+        header.in-hero .nav-link.active-section::before {
+            background-color: #C9A227 !important;
+            box-shadow: 0 0 8px #C9A227 !important;
+        }
+        header.in-hero .nav-hover-bg {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        header.in-hero .nav-divider {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        header.in-hero .menu-pill button[onclick="openQuoteModal()"] {
+            background-color: #ffffff !important;
+            color: #0A2E5C !important;
+        }
+        header.in-hero .menu-pill button[onclick="openQuoteModal()"]:hover {
+            background-color: #C9A227 !important;
+            color: #ffffff !important;
+        }
+
+        header.in-hero #lang-btn {
+            border-color: rgba(255, 255, 255, 0.25) !important;
+            color: #ffffff !important;
+            background-color: transparent !important;
+        }
+        header.in-hero #lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        header.in-hero #lang-btn span {
+            color: #ffffff !important;
+        }
+
+        header.in-hero #hamburger-btn span {
+            color: #ffffff !important;
+        }
+
         /* Responsive Section Padding Override */
         .py-stack-lg {
             padding-top: 60px;
@@ -314,7 +375,7 @@
                 </nav>
                 
                 <!-- Divider (hidden on mobile, visible on desktop) -->
-                <div class="hidden lg:block h-5 w-[1px] bg-outline-variant/50"></div>
+                <div class="nav-divider hidden lg:block h-5 w-[1px] bg-outline-variant/50"></div>
 
                 <!-- Navigation Actions -->
                 <div class="flex items-center gap-3 md:gap-4">
@@ -2034,11 +2095,20 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             const progress = document.getElementById('scroll-progress');
+            const heroSection = document.getElementById('hero');
+            const heroHeight = heroSection ? heroSection.offsetHeight : 600;
             
-            if (window.scrollY > 30) {
+            // If inside hero section, add in-hero (dark mode), otherwise remove it and add scrolled
+            if (window.scrollY > (heroHeight - 120)) {
+                header.classList.remove('in-hero');
                 header.classList.add('scrolled');
             } else {
-                header.classList.remove('scrolled');
+                header.classList.add('in-hero');
+                if (window.scrollY > 30) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             }
 
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -2046,6 +2116,9 @@
             const scrolled = (winScroll / height) * 100;
             if (progress) progress.style.width = scrolled + '%';
         });
+
+        // Trigger initial scroll calculation to set navbar color on load
+        window.dispatchEvent(new Event('scroll'));
 
         // Sliding Navigation Hover Backdrop & Active Dot Observer
         document.addEventListener('DOMContentLoaded', () => {
