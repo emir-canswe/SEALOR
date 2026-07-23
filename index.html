@@ -20,14 +20,14 @@
     <meta property="og:description" content="Dış ticaret, e-ticaret ve distribütörlük çözümlerimizle sınırları kaldırıyoruz. SEALOR, güvenilir küresel ticaret ortağınız."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://www.sealor.com/"/>
-    <meta property="og:image" content="images/global_trade_hero.jpg"/>
+    <meta property="og:image" content="./global_trade_hero.jpg"/>
     <meta property="og:locale" content="tr_TR"/>
     
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="SEALOR - Küresel Ticarette Güvenin Yeni Standartı"/>
     <meta name="twitter:description" content="Dış ticaret, e-ticaret ve distribütörlük çözümlerimizle sınırları kaldırıyoruz. SEALOR, güvenilir küresel ticaret ortağınız."/>
-    <meta name="twitter:image" content="images/global_trade_hero.jpg"/>
+    <meta name="twitter:image" content="./global_trade_hero.jpg"/>
 
     <!-- JSON-LD Structured Data for LocalBusiness -->
     <script type="application/ld+json">
@@ -72,7 +72,7 @@
     <!-- Performance: Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="images/global_trade_hero.jpg">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
     <!-- Fonts & Icons -->
@@ -192,6 +192,49 @@
         input:focus, select:focus, textarea:focus, button:focus-visible {
             outline: 2px solid #6366f1;
             outline-offset: 2px;
+        }
+
+        /* Premium CSS Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-12px) rotate(0.5deg);
+            }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 20px 10px rgba(99, 102, 241, 0.2);
+            }
+        }
+        
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hover-glow:hover {
+            animation: pulseGlow 2s infinite;
         }
     </style>
 </head>
@@ -331,22 +374,22 @@
                     
                     <!-- Text Content -->
                     <div class="lg:col-span-7 text-left rtl:text-right">
-                        <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-white/80 shadow-sm mb-8">
+                        <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-white/80 shadow-sm mb-8 animate-fade-in-up" style="animation-delay: 100ms;">
                             <span class="flex h-2 w-2 relative">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
                             </span>
                             <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-on-surface-variant" data-i18n="badgeHero">Küresel Ticaret ve Lojistik</span>
                         </div>
-                        <h1 class="font-display-lg text-4xl md:text-6xl lg:text-[72px] leading-[1.1] font-extrabold text-primary mb-6 tracking-tight text-gradient" data-i18n-html="heroTitle">
+                        <h1 class="font-display-lg text-4xl md:text-6xl lg:text-[72px] leading-[1.1] font-extrabold text-primary mb-6 tracking-tight text-gradient animate-fade-in-up" style="animation-delay: 250ms;" data-i18n-html="heroTitle">
                             Küresel Ticarette Güvenin<br/>
                             Yeni Standartı: <span class="italic font-normal text-secondary">SEALOR</span>
                         </h1>
-                        <p class="font-body-md text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-10 opacity-90" data-i18n="heroDesc">
+                        <p class="font-body-md text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-10 opacity-90 animate-fade-in-up" style="animation-delay: 400ms;" data-i18n="heroDesc">
                             Dış ticaret, e-ticaret ve distribütörlük çözümlerimizle sınırları kaldırıyoruz. Veri odaklı tedarik zinciri yönetimi ile işinizi küresel ölçeğe taşıyan stratejik ortağınız.
                         </p>
-                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                            <a href="#hizmetler" class="group px-8 py-4 bg-primary text-white rounded-full font-bold text-[11px] uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all duration-500 flex items-center justify-center gap-3">
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-fade-in-up" style="animation-delay: 550ms;">
+                            <a href="#hizmetler" class="group px-8 py-4 bg-primary text-white rounded-full font-bold text-[11px] uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 hover-glow transition-all duration-500 flex items-center justify-center gap-3">
                                 <span data-i18n="btnDiscoverServices">Hizmetlerimizi Keşfet</span>
                                 <span class="material-symbols-outlined text-sm group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">arrow_forward</span>
                             </a>
@@ -357,9 +400,9 @@
                     </div>
                     
                     <!-- Hero Image Banner -->
-                    <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+                    <div class="lg:col-span-5 relative mt-8 lg:mt-0 animate-float">
                         <div class="relative rounded-[2.5rem] overflow-hidden premium-shadow border border-white/50 bg-white/30 backdrop-blur-sm p-3">
-                            <img alt="SEALOR Global Lojistik ve Deniz Ticareti" class="rounded-[2rem] w-full aspect-[4/3] object-cover" src="images/global_trade_hero.jpg" width="600" height="450" />
+                            <img alt="SEALOR Global Lojistik ve Deniz Ticareti" class="rounded-[2rem] w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" width="600" height="450" />
                             <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-primary/30 to-transparent pointer-events-none"></div>
                         </div>
                         
@@ -525,7 +568,7 @@
                     
                     <div class="lg:col-span-6 order-1 lg:order-2">
                         <div class="relative rounded-[3rem] overflow-hidden group premium-shadow border border-white/10">
-                            <img alt="SEALOR Global Kontrol ve Operasyon Merkezi" class="w-full aspect-square object-cover transition-transform duration-1000 group-hover:scale-110" src="images/logistics_control_center.jpg" width="600" height="600" loading="lazy" />
+                            <img alt="SEALOR Global Kontrol ve Operasyon Merkezi" class="w-full aspect-square object-cover transition-transform duration-1000 group-hover:scale-110" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" width="600" height="600" loading="lazy" />
                             <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
                             <div class="absolute bottom-10 left-10 right-10 p-8 glass-card border-white/20 rounded-3xl text-left rtl:text-right">
                                 <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-2" data-i18n="aboutOpCenter">Merkez Operasyon</div>
