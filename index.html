@@ -258,12 +258,7 @@
             padding-bottom: 10px;
             border-bottom-left-radius: 1.5rem;
             border-bottom-right-radius: 1.5rem;
-            background-color: #020617 !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 0 10px 25px -10px rgba(2, 6, 23, 0.25);
-        }
-        header.scrolled .logo-container span {
-            color: #ffffff !important;
+            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
         }
 
         .menu-pill {
@@ -273,55 +268,70 @@
         header.scrolled .menu-pill {
             padding-top: 8px;
             padding-bottom: 8px;
+            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Out-Of-Hero Koyu Temalı Durum (Leaves Hero -> Black Theme) */
+        header.out-of-hero .logo-container {
+            background-color: #020617 !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+            box-shadow: 0 10px 25px -10px rgba(2, 6, 23, 0.25);
+        }
+        header.out-of-hero .logo-container span {
+            color: #ffffff !important;
+        }
+
+        header.out-of-hero .menu-pill {
             background-color: rgba(2, 6, 23, 0.92) !important;
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
             box-shadow: 0 10px 25px -10px rgba(2, 6, 23, 0.3);
         }
 
-        header.scrolled .nav-link {
+        header.out-of-hero .nav-link {
             color: rgba(255, 255, 255, 0.8) !important;
         }
-        header.scrolled .nav-link:hover {
+        header.out-of-hero .nav-link:hover {
             color: #ffffff !important;
         }
-        header.scrolled .nav-link.active-section {
+        header.out-of-hero .nav-link.active-section {
             color: #6366f1 !important;
         }
-        header.scrolled .nav-link.active-section::before {
+        header.out-of-hero .nav-link.active-section::before {
             background-color: #6366f1 !important;
             box-shadow: 0 0 8px #6366f1 !important;
         }
-        header.scrolled .nav-hover-bg {
+        header.out-of-hero .nav-hover-bg {
             background-color: rgba(255, 255, 255, 0.08) !important;
         }
 
-        header.scrolled .nav-divider {
+        header.out-of-hero .nav-divider {
             background-color: rgba(255, 255, 255, 0.2) !important;
         }
 
-        header.scrolled .menu-pill button[onclick="openQuoteModal()"] {
+        header.out-of-hero .menu-pill button[onclick="openQuoteModal()"] {
             background-color: #ffffff !important;
             color: #020617 !important;
         }
-        header.scrolled .menu-pill button[onclick="openQuoteModal()"]:hover {
+        header.out-of-hero .menu-pill button[onclick="openQuoteModal()"]:hover {
             background-color: #6366f1 !important;
             color: #ffffff !important;
         }
 
-        header.scrolled #lang-btn {
+        header.out-of-hero #lang-btn {
             border-color: rgba(255, 255, 255, 0.2) !important;
             color: #ffffff !important;
             background-color: transparent !important;
         }
-        header.scrolled #lang-btn:hover {
+        header.out-of-hero #lang-btn:hover {
             background-color: rgba(255, 255, 255, 0.1) !important;
         }
-        header.scrolled #lang-btn span {
+        header.out-of-hero #lang-btn span {
             color: #ffffff !important;
         }
 
-        header.scrolled #hamburger-btn span {
+        header.out-of-hero #hamburger-btn span {
             color: #ffffff !important;
         }
 
@@ -407,22 +417,7 @@
             to { background-position: 200% center; }
         }
 
-        /* In-Hero Koyu Temalı Durum */
-        header.in-hero .logo-container {
-            background-color: rgba(10, 30, 60, 0.6) !important;
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        }
-        header.in-hero .logo-container span {
-            color: #ffffff !important;
-        }
 
-        header.in-hero .menu-pill {
-            background-color: rgba(10, 30, 60, 0.6) !important;
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 0 10px 30px -10px rgba(6, 21, 43, 0.3);
-        }
 
         /* Dark Hero Element Style Overrides */
         #hero .glass-card {
@@ -478,51 +473,7 @@
             border-color: rgba(255, 255, 255, 0.25) !important;
         }
 
-        header.in-hero .nav-link {
-            color: rgba(255, 255, 255, 0.75) !important;
-        }
-        header.in-hero .nav-link:hover {
-            color: #ffffff !important;
-        }
-        header.in-hero .nav-link.active-section {
-            color: #C9A227 !important;
-        }
-        header.in-hero .nav-link.active-section::before {
-            background-color: #C9A227 !important;
-            box-shadow: 0 0 8px #C9A227 !important;
-        }
-        header.in-hero .nav-hover-bg {
-            background-color: rgba(255, 255, 255, 0.08) !important;
-        }
 
-        header.in-hero .nav-divider {
-            background-color: rgba(255, 255, 255, 0.2) !important;
-        }
-
-        header.in-hero .menu-pill button[onclick="openQuoteModal()"] {
-            background-color: #ffffff !important;
-            color: #0A2E5C !important;
-        }
-        header.in-hero .menu-pill button[onclick="openQuoteModal()"]:hover {
-            background-color: #C9A227 !important;
-            color: #ffffff !important;
-        }
-
-        header.in-hero #lang-btn {
-            border-color: rgba(255, 255, 255, 0.25) !important;
-            color: #ffffff !important;
-            background-color: transparent !important;
-        }
-        header.in-hero #lang-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1) !important;
-        }
-        header.in-hero #lang-btn span {
-            color: #ffffff !important;
-        }
-
-        header.in-hero #hamburger-btn span {
-            color: #ffffff !important;
-        }
 
         /* Responsive Section Padding Override */
         .py-stack-lg {
@@ -2294,17 +2245,18 @@
             const heroSection = document.getElementById('hero');
             const heroHeight = heroSection ? heroSection.offsetHeight : 600;
             
-            // If inside hero section, add in-hero (dark mode), otherwise remove it and add scrolled
-            if (window.scrollY > (heroHeight - 120)) {
-                header.classList.remove('in-hero');
+            // Toggle scrolled (size shrinking) past 30px
+            if (window.scrollY > 30) {
                 header.classList.add('scrolled');
             } else {
-                header.classList.add('in-hero');
-                if (window.scrollY > 30) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+                header.classList.remove('scrolled');
+            }
+
+            // Toggle out-of-hero (black color theme) when leaving the hero section
+            if (window.scrollY > (heroHeight - 120)) {
+                header.classList.add('out-of-hero');
+            } else {
+                header.classList.remove('out-of-hero');
             }
 
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
