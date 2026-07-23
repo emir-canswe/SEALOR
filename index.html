@@ -565,27 +565,71 @@
     <!-- Mobile Drawer Navigation -->
     <div id="mobile-menu" class="fixed inset-0 z-[150] hidden lg:hidden" aria-modal="true" role="dialog">
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-primary/40 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div class="fixed inset-0 bg-[#030e1e]/60 backdrop-blur-md transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
         <!-- Content -->
-        <nav class="fixed top-0 right-0 bottom-0 w-80 bg-white shadow-2xl p-8 flex flex-col justify-between border-l border-outline-variant/30">
+        <nav class="fixed top-0 right-0 bottom-0 w-80 bg-[#06152b]/95 backdrop-blur-xl shadow-2xl p-8 flex flex-col justify-between border-l border-white/10 text-left rtl:text-right transition-all duration-300">
             <div>
-                <div class="flex justify-between items-center mb-12">
-                    <span class="font-display-lg text-xl font-extrabold tracking-tight text-primary">SEALOR</span>
-                    <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors" aria-label="Menüyü Kapat">
-                        <span class="material-symbols-outlined text-primary">close</span>
+                <div class="flex justify-between items-center mb-10 pb-4 border-b border-white/10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 overflow-hidden rounded-xl border border-white/10 shadow-md">
+                            <img src="./sealor_logo.jpg" alt="SEALOR Logo" class="w-full h-full object-cover" />
+                        </div>
+                        <span class="font-display-lg text-xl font-extrabold tracking-tight text-white">SEALOR</span>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 text-white transition-colors" aria-label="Menüyü Kapat">
+                        <span class="material-symbols-outlined text-white">close</span>
                     </button>
                 </div>
-                <ul class="space-y-6">
-                    <li><a class="block font-semibold text-lg text-primary hover:text-secondary transition-colors" href="#hakkimizda" onclick="toggleMobileMenu()" data-i18n="navAbout">Hakkımızda</a></li>
-                    <li><a class="block font-semibold text-lg text-primary hover:text-secondary transition-colors" href="#hizmetler" onclick="toggleMobileMenu()" data-i18n="navServices">Hizmetler</a></li>
-                    <li><a class="block font-semibold text-lg text-primary hover:text-secondary transition-colors" href="#surdurulebilirlik" onclick="toggleMobileMenu()" data-i18n="navSustainability">Sürdürülebilirlik</a></li>
-                    <li><a class="block font-semibold text-lg text-primary hover:text-secondary transition-colors" href="#faq" onclick="toggleMobileMenu()" data-i18n="navFaq">Sıkça Sorulan Sorular</a></li>
-                    <li><a class="block font-semibold text-lg text-primary hover:text-secondary transition-colors" href="#iletisim" onclick="toggleMobileMenu()" data-i18n="navContact">İletişim</a></li>
+                <ul class="space-y-5">
+                    <li>
+                        <a class="flex items-center gap-3 font-semibold text-lg text-white/95 hover:text-secondary hover:translate-x-2 rtl:hover:-translate-x-2 transition-all duration-300" href="#hakkimizda" onclick="toggleMobileMenu()">
+                            <span class="material-symbols-outlined text-secondary text-xl">info</span>
+                            <span data-i18n="navAbout">Hakkımızda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-3 font-semibold text-lg text-white/95 hover:text-secondary hover:translate-x-2 rtl:hover:-translate-x-2 transition-all duration-300" href="#hizmetler" onclick="toggleMobileMenu()">
+                            <span class="material-symbols-outlined text-secondary text-xl">explore</span>
+                            <span data-i18n="navServices">Hizmetler</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-3 font-semibold text-lg text-white/95 hover:text-secondary hover:translate-x-2 rtl:hover:-translate-x-2 transition-all duration-300" href="#surdurulebilirlik" onclick="toggleMobileMenu()">
+                            <span class="material-symbols-outlined text-secondary text-xl">eco</span>
+                            <span data-i18n="navSustainability">Sürdürülebilirlik</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-3 font-semibold text-lg text-white/95 hover:text-secondary hover:translate-x-2 rtl:hover:-translate-x-2 transition-all duration-300" href="#faq" onclick="toggleMobileMenu()">
+                            <span class="material-symbols-outlined text-secondary text-xl">help</span>
+                            <span data-i18n="navFaq">Sıkça Sorulan Sorular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-3 font-semibold text-lg text-white/95 hover:text-secondary hover:translate-x-2 rtl:hover:-translate-x-2 transition-all duration-300" href="#iletisim" onclick="toggleMobileMenu()">
+                            <span class="material-symbols-outlined text-secondary text-xl">mail</span>
+                            <span data-i18n="navContact">İletişim</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full py-4 bg-primary text-white font-bold text-xs uppercase tracking-[0.2em] rounded-xl hover:bg-secondary transition-all" data-i18n="btnCreateQuote">
-                Talep Oluştur
-            </button>
+            
+            <div class="space-y-6">
+                <!-- Mobile Language Selector -->
+                <div class="pt-4 border-t border-white/10">
+                    <div class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2.5" data-i18n="mobileLangLabel">Dil / Language</div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeLanguage('TR'); toggleMobileMenu();" class="flex-1 py-2 text-center text-xs font-bold rounded-lg transition-all" id="mobile-lang-tr">TR</button>
+                        <button onclick="changeLanguage('EN'); toggleMobileMenu();" class="flex-1 py-2 text-center text-xs font-bold rounded-lg transition-all" id="mobile-lang-en">EN</button>
+                        <button onclick="changeLanguage('AR'); toggleMobileMenu();" class="flex-1 py-2 text-center text-xs font-bold rounded-lg transition-all" id="mobile-lang-ar">AR</button>
+                    </div>
+                </div>
+
+                <!-- Mobile CTA Button -->
+                <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full py-3.5 bg-secondary text-primary font-bold text-xs uppercase tracking-[0.25em] rounded-full hover:bg-white hover:shadow-xl transition-all duration-300" data-i18n="btnCreateQuote">
+                    Talep Oluştur
+                </button>
+            </div>
         </nav>
     </div>
 
@@ -1912,6 +1956,19 @@
                 }
             });
 
+            // Update active state of mobile drawer language buttons
+            const mobOpts = { TR: 'mobile-lang-tr', EN: 'mobile-lang-en', AR: 'mobile-lang-ar' };
+            Object.keys(mobOpts).forEach(k => {
+                const btn = document.getElementById(mobOpts[k]);
+                if (btn) {
+                    if (k === lang) {
+                        btn.className = 'flex-1 py-2 text-center text-xs font-bold rounded-lg bg-secondary text-primary border border-secondary transition-all shadow-md';
+                    } else {
+                        btn.className = 'flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all';
+                    }
+                }
+            });
+
             // Update current lang label in the button trigger
             const labelEl = document.getElementById('current-lang-label');
             if (labelEl) labelEl.innerText = lang;
@@ -2270,6 +2327,20 @@
 
         // Sliding Navigation Hover Backdrop & Active Dot Observer
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize mobile language switcher buttons
+            const trBtn = document.getElementById('mobile-lang-tr');
+            if (trBtn) {
+                trBtn.className = 'flex-1 py-2 text-center text-xs font-bold rounded-lg bg-secondary text-primary border border-secondary transition-all shadow-md';
+            }
+            const enBtn = document.getElementById('mobile-lang-en');
+            if (enBtn) {
+                enBtn.className = 'flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all';
+            }
+            const arBtn = document.getElementById('mobile-lang-ar');
+            if (arBtn) {
+                arBtn.className = 'flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all';
+            }
+
             const nav = document.querySelector('nav');
             if (!nav) return;
             
