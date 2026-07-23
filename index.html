@@ -144,20 +144,22 @@
         }
 
         .hero-pattern {
-            background-color: #ffffff;
+            background-color: #030e1e;
             background-image: 
-                radial-gradient(at 0% 0%, hsla(231,100%,95%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,100%,98%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(240,100%,94%,1) 0, transparent 50%);
+                radial-gradient(at 0% 0%, hsla(217, 85%, 15%, 1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(224, 75%, 12%, 1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(217, 95%, 8%, 1) 0, transparent 50%);
         }
 
         .mesh-grid {
-            background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -353,17 +355,73 @@
 
         /* In-Hero Koyu Temalı Durum */
         header.in-hero .logo-container {
-            background-color: #0A2E5C !important;
-            border-color: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(6, 21, 43, 0.65) !important;
+            backdrop-filter: blur(12px);
+            border-color: rgba(255, 255, 255, 0.1) !important;
         }
         header.in-hero .logo-container span {
             color: #ffffff !important;
         }
 
         header.in-hero .menu-pill {
-            background-color: rgba(10, 46, 92, 0.95) !important;
+            background-color: rgba(6, 21, 43, 0.65) !important;
+            backdrop-filter: blur(12px);
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 30px -10px rgba(10, 46, 92, 0.25);
+        }
+
+        /* Dark Hero Element Style Overrides */
+        #hero .glass-card {
+            background: rgba(15, 23, 42, 0.45) !important;
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+        }
+        #hero .glass-card .text-primary {
+            color: #ffffff !important;
+        }
+        #hero .glass-card .text-on-surface-variant {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+        #hero .glass-card span.material-symbols-outlined {
+            color: #ffffff !important;
+        }
+        #hero .glass-card span.material-symbols-outlined.text-secondary {
+            color: #C9A227 !important;
+        }
+
+        #hero .inline-flex.items-center.bg-white\/60 {
+            background-color: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        #hero .inline-flex.items-center.bg-white\/60 span.text-on-surface-variant {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        #hero p.text-on-surface-variant {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        #hero a[href="#hizmetler"] {
+            background-color: #C9A227 !important;
+            color: #0A2E5C !important;
+            box-shadow: 0 10px 25px -5px rgba(201, 162, 39, 0.3) !important;
+        }
+        #hero a[href="#hizmetler"]:hover {
+            background-color: #ffffff !important;
+            color: #0A2E5C !important;
+            box-shadow: 0 15px 30px -5px rgba(255, 255, 255, 0.4) !important;
+        }
+
+        #hero button[onclick="openTourModal()"] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
             border-color: rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 0 10px 30px -10px rgba(10, 46, 92, 0.2);
+            color: #ffffff !important;
+        }
+        #hero button[onclick="openTourModal()"]:hover {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.25) !important;
         }
 
         header.in-hero .nav-link {
@@ -2314,6 +2372,9 @@
                         this.vx = (Math.random() - 0.5) * 0.4;
                         this.vy = (Math.random() - 0.5) * 0.4;
                         this.radius = Math.random() * 2 + 0.8;
+                        this.color = Math.random() < 0.3 
+                            ? 'rgba(201, 162, 39, 0.65)'  // Glowing Gold Particle
+                            : 'rgba(165, 180, 252, 0.55)'; // Glowing Indigo/White Particle
                     }
 
                     update() {
@@ -2340,7 +2401,7 @@
                     draw() {
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = 'rgba(99, 102, 241, 0.35)'; // indigo-500
+                        ctx.fillStyle = this.color;
                         ctx.fill();
                     }
                 }
@@ -2381,8 +2442,8 @@
                                 ctx.beginPath();
                                 ctx.moveTo(particles[i].x, particles[i].y);
                                 ctx.lineTo(particles[j].x, particles[j].y);
-                                const alpha = (1 - dist / connectionDistance) * 0.12;
-                                ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+                                const alpha = (1 - dist / connectionDistance) * 0.15;
+                                ctx.strokeStyle = `rgba(165, 180, 252, ${alpha})`;
                                 ctx.lineWidth = 0.7;
                                 ctx.stroke();
                             }
