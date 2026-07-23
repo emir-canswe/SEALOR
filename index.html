@@ -269,6 +269,88 @@
             box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
         }
 
+        /* Nav hover indicator container */
+        nav {
+            position: relative;
+        }
+
+        /* The sliding hover backdrop */
+        .nav-hover-bg {
+            position: absolute;
+            background-color: rgba(99, 102, 241, 0.08);
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+            opacity: 0;
+            z-index: 0;
+            transform: scale(0.95);
+        }
+
+        /* Navigation Links Layout and Paddings */
+        .nav-link {
+            position: relative;
+            z-index: 1;
+            padding: 8px 16px !important; /* 16px padding is perfectly balanced */
+            border-radius: 9999px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            display: none !important;
+        }
+        
+        /* Active Link Indicator Dot */
+        .nav-link.active-section {
+            color: #6366f1 !important;
+        }
+        
+        .nav-link.active-section::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #6366f1;
+            box-shadow: 0 0 8px #6366f1;
+        }
+
+        /* Dropdowns */
+        #lang-dropdown {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+            transform: scale(0.95) translateY(-10px);
+            opacity: 0;
+            pointer-events: none;
+            display: block !important;
+        }
+        #lang-dropdown.dropdown-active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Scroll Progress Line */
+        .scroll-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2.5px;
+            background: linear-gradient(to right, #6366f1, #a5b4fc, #6366f1);
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+            width: 0%;
+            transition: width 0.1s ease;
+            border-bottom-left-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+            opacity: 0.9;
+        }
+        
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
         /* In-Hero Koyu Temalı Durum */
         header.in-hero .logo-container {
             background-color: #0A2E5C !important;
@@ -366,7 +448,7 @@
             <!-- Floating Menu Pill (Right) -->
             <div class="menu-pill pointer-events-auto flex items-center gap-6 md:gap-8 bg-white/90 backdrop-blur-md border border-outline-variant/40 px-5 py-2.5 rounded-full shadow-lg shadow-primary/5 hover:border-primary/20 transition-all duration-300">
                 <!-- Desktop Navigation Menu -->
-                <nav class="hidden lg:flex items-center gap-6" aria-label="Ana Menü">
+                <nav class="hidden lg:flex items-center gap-1" aria-label="Ana Menü">
                     <a class="nav-link relative text-sm font-semibold tracking-wide text-primary" href="#hakkimizda" data-i18n="navAbout">Hakkımızda</a>
                     <a class="nav-link relative text-sm font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors" href="#hizmetler" data-i18n="navServices">Hizmetler</a>
                     <a class="nav-link relative text-sm font-semibold tracking-wide text-on-surface-variant hover:text-primary transition-colors" href="#surdurulebilirlik" data-i18n="navSustainability">Sürdürülebilirlik</a>
@@ -2123,6 +2205,8 @@
         // Sliding Navigation Hover Backdrop & Active Dot Observer
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.querySelector('nav');
+            if (!nav) return;
+            
             const hoverBg = document.createElement('div');
             hoverBg.className = 'nav-hover-bg';
             nav.appendChild(hoverBg);
@@ -2143,11 +2227,12 @@
                     hoverBg.style.opacity = '1';
                     hoverBg.style.transform = 'scale(1)';
                 });
-                
-                link.addEventListener('mouseleave', () => {
-                    hoverBg.style.opacity = '0';
-                    hoverBg.style.transform = 'scale(0.95)';
-                });
+            });
+
+            // Hide indicator backdrop only when mouse leaves the entire nav block
+            nav.addEventListener('mouseleave', () => {
+                hoverBg.style.opacity = '0';
+                hoverBg.style.transform = 'scale(0.95)';
             });
 
             // Intersection Observer to active link on scroll
