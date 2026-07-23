@@ -265,13 +265,31 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Responsive Section Padding Override */
+        .py-stack-lg {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        @media (min-width: 768px) {
+            .py-stack-lg {
+                padding-top: 90px;
+                padding-bottom: 90px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .py-stack-lg {
+                padding-top: 120px;
+                padding-bottom: 120px;
+            }
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary/20 selection:text-secondary">
 
     <!-- Navigation Header -->
     <header class="glass-nav border-b border-outline-variant/50 fixed top-0 left-0 w-full z-[100]">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6 flex justify-between items-center">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 md:py-6 flex justify-between items-center transition-all duration-500">
             
             <!-- Brand Logo -->
             <div class="flex items-center gap-4 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="SEALOR Ana Sayfa">
@@ -410,11 +428,11 @@
                             </span>
                             <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-on-surface-variant" data-i18n="badgeHero">Küresel Ticaret ve Lojistik</span>
                         </div>
-                        <h1 class="font-display-lg text-4xl md:text-6xl lg:text-[72px] leading-[1.1] font-extrabold text-primary mb-6 tracking-tight text-gradient animate-fade-in-up" style="animation-delay: 250ms;" data-i18n-html="heroTitle">
+                        <h1 class="font-display-lg text-3xl sm:text-4xl md:text-6xl lg:text-[72px] leading-[1.1] font-extrabold text-primary mb-6 tracking-tight text-gradient animate-fade-in-up" style="animation-delay: 250ms;" data-i18n-html="heroTitle">
                             Küresel Ticarette Güvenin<br/>
                             Yeni Standartı: <span class="italic font-normal text-secondary">SEALOR</span>
                         </h1>
-                        <p class="font-body-md text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-10 opacity-90 animate-fade-in-up" style="animation-delay: 400ms;" data-i18n="heroDesc">
+                        <p class="font-body-md text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-8 md:mb-10 opacity-90 animate-fade-in-up" style="animation-delay: 400ms;" data-i18n="heroDesc">
                             Dış ticaret, e-ticaret ve distribütörlük çözümlerimizle sınırları kaldırıyoruz. Veri odaklı tedarik zinciri yönetimi ile işinizi küresel ölçeğe taşıyan stratejik ortağınız.
                         </p>
                         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-fade-in-up" style="animation-delay: 550ms;">
@@ -430,9 +448,9 @@
                     
                     <!-- Hero Image Banner -->
                     <div class="lg:col-span-5 relative mt-8 lg:mt-0 animate-float">
-                        <div class="relative rounded-[2.5rem] overflow-hidden premium-shadow border border-white/50 bg-white/30 backdrop-blur-sm p-3">
-                            <img alt="SEALOR Global Lojistik ve Deniz Ticareti" class="rounded-[2rem] w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" width="600" height="450" />
-                            <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-primary/30 to-transparent pointer-events-none"></div>
+                        <div class="relative rounded-3xl sm:rounded-[2.5rem] overflow-hidden premium-shadow border border-white/50 bg-white/30 backdrop-blur-sm p-2 sm:p-3">
+                            <img alt="SEALOR Global Lojistik ve Deniz Ticareti" class="rounded-2xl sm:rounded-[2rem] w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" width="600" height="450" />
+                            <div class="absolute inset-0 rounded-2xl sm:rounded-[2rem] bg-gradient-to-t from-primary/30 to-transparent pointer-events-none"></div>
                         </div>
                         
                         <!-- Floating Info Card Left -->
@@ -466,9 +484,9 @@
         </section>
 
         <!-- Stats Section -->
-        <section class="py-24 bg-primary text-white">
+        <section class="py-12 md:py-24 bg-primary text-white">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12 lg:gap-20">
                     <div class="flex flex-col items-center lg:items-start text-center lg:text-left rtl:lg:text-right">
                         <div class="text-4xl md:text-5xl font-display-lg font-extrabold mb-3 tracking-tighter" data-i18n="statCountries">10<span class="text-secondary">+</span></div>
                         <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400" data-i18n="statCountriesLbl">Ülke Ticaret Ağı</div>
@@ -492,22 +510,22 @@
         <!-- Services Section -->
         <section id="hizmetler" class="py-stack-lg bg-surface relative overflow-hidden">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-10">
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-24 gap-6 md:gap-10">
                     <div class="max-w-2xl text-left rtl:text-right">
-                        <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-6" data-i18n="srvSub">Operasyonel Mükemmellik</div>
-                        <h2 class="font-display-lg text-4xl md:text-6xl font-extrabold text-primary leading-[1.1] tracking-tight" data-i18n-html="srvTitle">Uçtan Uca Ticaret<br/>Çözümleri</h2>
+                        <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-4 md:mb-6" data-i18n="srvSub">Operasyonel Mükemmellik</div>
+                        <h2 class="font-display-lg text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary leading-[1.1] tracking-tight" data-i18n-html="srvTitle">Uçtan Uca Ticaret<br/>Çözümleri</h2>
                     </div>
-                    <p class="max-w-sm font-body-md text-on-surface-variant text-lg text-left rtl:text-right" data-i18n="srvDesc">Global pazarlardaki operasyonlarınızı optimize eden, veri destekli ve güvenilir hizmet altyapımız ile tanışın.</p>
+                    <p class="max-w-sm font-body-md text-on-surface-variant text-base md:text-lg text-left rtl:text-right" data-i18n="srvDesc">Global pazarlardaki operasyonlarınızı optimize eden, veri destekli ve güvenilir hizmet altyapımız ile tanışın.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     <!-- Service Card 1 -->
-                    <div onclick="openQuoteModalWithService('Dış Ticaret & Lojistik')" class="group p-10 bg-white rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="Dış Ticaret ve Lojistik hakkında detaylı bilgi al ve teklif iste">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-12 group-hover:bg-secondary transition-colors duration-500">
+                    <div onclick="openQuoteModalWithService('Dış Ticaret & Lojistik')" class="group p-6 sm:p-10 bg-white rounded-3xl sm:rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="Dış Ticaret ve Lojistik hakkında detaylı bilgi al ve teklif iste">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 sm:mb-12 group-hover:bg-secondary transition-colors duration-500">
                             <span class="material-symbols-outlined text-secondary text-3xl group-hover:text-white transition-colors duration-500">flight_takeoff</span>
                         </div>
-                        <h3 class="font-headline-md text-2xl font-bold text-primary mb-6" data-i18n="srvCard1Title">Dış Ticaret &amp; Lojistik</h3>
-                        <p class="font-body-md text-on-surface-variant leading-relaxed flex-1" data-i18n="srvCard1Desc">
+                        <h3 class="font-headline-md text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6" data-i18n="srvCard1Title">Dış Ticaret &amp; Lojistik</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm sm:text-base leading-relaxed flex-1" data-i18n="srvCard1Desc">
                             Uluslararası mevzuatlara uygun olarak her türlü hammadde, yarı mamul ve mamul maddelerin ithalatı, ihracatı, depolanması ve gümrüklemesi.
                         </p>
                         <div class="mt-6 flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider group-hover:gap-4 transition-all">
@@ -516,12 +534,12 @@
                     </div>
                     
                     <!-- Service Card 2 -->
-                    <div onclick="openQuoteModalWithService('E-Ticaret & Dijital Ticaret')" class="group p-10 bg-white rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="E-Ticaret ve Dijital Ticaret hakkında detaylı bilgi al ve teklif iste">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-12 group-hover:bg-secondary transition-colors duration-500">
+                    <div onclick="openQuoteModalWithService('E-Ticaret & Dijital Ticaret')" class="group p-6 sm:p-10 bg-white rounded-3xl sm:rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="E-Ticaret ve Dijital Ticaret hakkında detaylı bilgi al ve teklif iste">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 sm:mb-12 group-hover:bg-secondary transition-colors duration-500">
                             <span class="material-symbols-outlined text-secondary text-3xl group-hover:text-white transition-colors duration-500">shopping_cart</span>
                         </div>
-                        <h3 class="font-headline-md text-2xl font-bold text-primary mb-6" data-i18n="srvCard2Title">Dijital &amp; E-Ticaret</h3>
-                        <p class="font-body-md text-on-surface-variant leading-relaxed flex-1" data-i18n="srvCard2Desc">
+                        <h3 class="font-headline-md text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6" data-i18n="srvCard2Title">Dijital &amp; E-Ticaret</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm sm:text-base leading-relaxed flex-1" data-i18n="srvCard2Desc">
                             Elektronik ticaret platformları ve e-ticaret siteleri üzerinden yurt içi ve yurt dışı mikro ihracat ve toptan/perakende dijital satış süreçleri.
                         </p>
                         <div class="mt-6 flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider group-hover:gap-4 transition-all">
@@ -530,12 +548,12 @@
                     </div>
                     
                     <!-- Service Card 3 -->
-                    <div onclick="openQuoteModalWithService('Genel Ticaret & Pazarlama')" class="group p-10 bg-white rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="Genel Ticaret ve Pazarlama hakkında detaylı bilgi al ve teklif iste">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-12 group-hover:bg-secondary transition-colors duration-500">
+                    <div onclick="openQuoteModalWithService('Genel Ticaret & Pazarlama')" class="group p-6 sm:p-10 bg-white rounded-3xl sm:rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="Genel Ticaret ve Pazarlama hakkında detaylı bilgi al ve teklif iste">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 sm:mb-12 group-hover:bg-secondary transition-colors duration-500">
                             <span class="material-symbols-outlined text-secondary text-3xl group-hover:text-white transition-colors duration-500">storefront</span>
                         </div>
-                        <h3 class="font-headline-md text-2xl font-bold text-primary mb-6" data-i18n="srvCard3Title">Genel Ticaret &amp; Pazarlama</h3>
-                        <p class="font-body-md text-on-surface-variant leading-relaxed flex-1" data-i18n="srvCard3Desc">
+                        <h3 class="font-headline-md text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6" data-i18n="srvCard3Title">Genel Ticaret &amp; Pazarlama</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm sm:text-base leading-relaxed flex-1" data-i18n="srvCard3Desc">
                             Tekstil, gıda, kimya, plastik, metal, makine, otomotiv yedek parça ve dayanıklı tüketim malları gibi geniş ürün yelpazesinin toptan alım satımı.
                         </p>
                         <div class="mt-6 flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider group-hover:gap-4 transition-all">
@@ -544,12 +562,12 @@
                     </div>
                     
                     <!-- Service Card 4 -->
-                    <div onclick="openQuoteModalWithService('Distribütörlük & Temsilcilik')" class="group p-10 bg-white rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="Distribütörlük ve Temsilcilik hakkında detaylı bilgi al ve teklif iste">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-12 group-hover:bg-secondary transition-colors duration-500">
+                    <div onclick="openQuoteModalWithService('Distribütörlük & Temsilcilik')" class="group p-6 sm:p-10 bg-white rounded-3xl sm:rounded-[2.5rem] hover-lift border border-outline-variant/30 flex flex-col min-h-[400px] cursor-pointer text-left rtl:text-right" role="button" tabindex="0" aria-label="Distribütörlük ve Temsilcilik hakkında detaylı bilgi al ve teklif iste">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 sm:mb-12 group-hover:bg-secondary transition-colors duration-500">
                             <span class="material-symbols-outlined text-secondary text-3xl group-hover:text-white transition-colors duration-500">handshake</span>
                         </div>
-                        <h3 class="font-headline-md text-2xl font-bold text-primary mb-6" data-i18n="srvCard4Title">Distribütörlük</h3>
-                        <p class="font-body-md text-on-surface-variant leading-relaxed flex-1" data-i18n="srvCard4Desc">
+                        <h3 class="font-headline-md text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6" data-i18n="srvCard4Title">Distribütörlük</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm sm:text-base leading-relaxed flex-1" data-i18n="srvCard4Desc">
                             Yerli ve yabancı markaların bayiliği, distribütörlüğü ve acenteliği. Lisans, know-how ve franchise entegrasyonu.
                         </p>
                         <div class="mt-6 flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider group-hover:gap-4 transition-all">
@@ -564,11 +582,11 @@
         <section id="hakkimizda" class="py-stack-lg bg-primary relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none mesh-grid"></div>
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
                     
                     <div class="lg:col-span-6 order-2 lg:order-1 text-left rtl:text-right">
-                        <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-8" data-i18n="aboutSub">Hakkımızda &amp; Vizyonumuz</div>
-                        <h2 class="font-display-lg text-4xl md:text-5xl font-extrabold text-white leading-[1.1] tracking-tight mb-10" data-i18n-html="aboutTitle">İstanbul'dan Dünyaya<br/>Uzanan Ticaret Köprüsü</h2>
+                        <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-4 md:mb-8" data-i18n="aboutSub">Hakkımızda &amp; Vizyonumuz</div>
+                        <h2 class="font-display-lg text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 md:mb-10" data-i18n-html="aboutTitle">İstanbul'dan Dünyaya<br/>Uzanan Ticaret Köprüsü</h2>
                         <p class="font-body-md text-slate-300 text-lg mb-12 leading-relaxed" data-i18n="aboutDesc">
                             Şişli, İstanbul merkezli SEALOR İhracat ve İthalat Ticaret Limited Şirketi olarak, kıtalararası güçlü ağımız ile küresel lojistik süreçlerini optimize ediyor, markaların distribütörlük ve dijital ticaret operasyonlarını modern çağın standartlarına taşıyoruz.
                         </p>
@@ -596,14 +614,14 @@
                     </div>
                     
                     <div class="lg:col-span-6 order-1 lg:order-2">
-                        <div class="relative rounded-[3rem] overflow-hidden group premium-shadow border border-white/10">
+                        <div class="relative rounded-3xl sm:rounded-[3rem] overflow-hidden group premium-shadow border border-white/10">
                             <img alt="SEALOR Global Kontrol ve Operasyon Merkezi" class="w-full aspect-square object-cover transition-transform duration-1000 group-hover:scale-110" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" width="600" height="600" loading="lazy" />
                             <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
-                            <div class="absolute bottom-10 left-10 right-10 p-8 glass-card border-white/20 rounded-3xl text-left rtl:text-right">
-                                <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-2" data-i18n="aboutOpCenter">Merkez Operasyon</div>
-                                <div class="text-2xl font-bold text-white mb-4" data-i18n="aboutLocation">Şişli, İstanbul, TR</div>
-                                <div class="flex items-center gap-2 text-slate-300 text-xs">
-                                    <span class="material-symbols-outlined text-sm">schedule</span>
+                            <div class="absolute bottom-4 left-4 right-4 sm:bottom-10 sm:left-10 sm:right-10 p-4 sm:p-8 glass-card border-white/20 rounded-2xl sm:rounded-3xl text-left rtl:text-right">
+                                <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-1 sm:mb-2" data-i18n="aboutOpCenter">Merkez Operasyon</div>
+                                <div class="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-4" data-i18n="aboutLocation">Şişli, İstanbul, TR</div>
+                                <div class="flex items-center gap-2 text-slate-300 text-[10px] sm:text-xs">
+                                    <span class="material-symbols-outlined text-xs sm:text-sm">schedule</span>
                                     <span data-i18n="aboutMonitoring">24/7 Global Operasyon İzleme</span>
                                 </div>
                             </div>
@@ -616,12 +634,12 @@
         <!-- Sustainability Section -->
         <section id="surdurulebilirlik" class="py-stack-lg bg-surface relative overflow-hidden">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                     
                     <!-- Green Commitment details -->
                     <div class="lg:col-span-7 text-left rtl:text-right">
-                        <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-6" data-i18n="susSub">Yeşil Lojistik</div>
-                        <h2 class="font-display-lg text-4xl md:text-5xl font-extrabold text-primary leading-[1.1] tracking-tight mb-8" data-i18n-html="susTitle">Gelecek Nesiller İçin<br/>Sürdürülebilir Ticaret</h2>
+                        <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-4 md:mb-6" data-i18n="susSub">Yeşil Lojistik</div>
+                        <h2 class="font-display-lg text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-[1.1] tracking-tight mb-6 md:mb-8" data-i18n-html="susTitle">Gelecek Nesiller İçin<br/>Sürdürülebilir Ticaret</h2>
                         <p class="font-body-md text-on-surface-variant text-lg leading-relaxed mb-10" data-i18n="susDesc">
                             Çevreye duyarlı tedarik zinciri stratejileriyle küresel ticareti yeşillendiriyoruz. SEALOR olarak sürdürülebilir paketleme, akıllı rota planlama ve düşük karbon salınımı ilkelerini benimsiyoruz.
                         </p>
@@ -645,7 +663,7 @@
                     
                     <!-- Green Targets block -->
                     <div class="lg:col-span-5">
-                        <div class="bg-primary text-white p-10 rounded-[2.5rem] relative overflow-hidden text-left rtl:text-right">
+                        <div class="bg-primary text-white p-6 sm:p-10 rounded-3xl sm:rounded-[2.5rem] relative overflow-hidden text-left rtl:text-right">
                             <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-secondary/20 rounded-full blur-2xl"></div>
                             <h3 class="font-display-lg text-2xl font-bold mb-6" data-i18n="susTargetsTitle">Yeşil Taahhütlerimiz</h3>
                             <ul class="space-y-6">
@@ -749,10 +767,10 @@
         <!-- Contact Section -->
         <section id="iletisim" class="py-stack-lg bg-surface relative overflow-hidden">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
                     
                     <!-- Contact Form -->
-                    <div class="lg:col-span-7 bg-white p-10 md:p-12 rounded-[2.5rem] border border-outline-variant/30 premium-shadow text-left rtl:text-right">
+                    <div class="lg:col-span-7 bg-white p-6 sm:p-10 md:p-12 rounded-3xl sm:rounded-[2.5rem] border border-outline-variant/30 premium-shadow text-left rtl:text-right">
                         <div class="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mb-4" data-i18n="contactSub">Bize Ulaşın</div>
                         <h2 class="font-display-lg text-3xl md:text-4xl font-extrabold text-primary mb-8" data-i18n="contactTitle">İletişim Formu</h2>
                         
@@ -797,7 +815,7 @@
                     
                     <!-- Company Info & Map -->
                     <div class="lg:col-span-5 space-y-8 text-left rtl:text-right w-full">
-                        <div class="bg-primary text-white p-10 rounded-[2.5rem] relative overflow-hidden">
+                        <div class="bg-primary text-white p-6 sm:p-10 rounded-3xl sm:rounded-[2.5rem] relative overflow-hidden">
                             <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-secondary/15 rounded-full blur-2xl"></div>
                             <h3 class="font-display-lg text-2xl font-bold mb-6" data-i18n="companyInfoTitle">Şirket Bilgileri</h3>
                             <div class="space-y-6 text-slate-300">
@@ -826,8 +844,8 @@
                         </div>
                         
                         <!-- Interactive SVG Map -->
-                        <div class="rounded-[2.5rem] overflow-hidden border border-outline-variant/60 bg-white p-4 premium-shadow h-[280px] relative group" aria-label="Şişli, İstanbul Ofis Lokasyon Haritası">
-                            <div class="w-full h-full bg-slate-100 rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden">
+                        <div class="rounded-3xl sm:rounded-[2.5rem] overflow-hidden border border-outline-variant/60 bg-white p-3 sm:p-4 premium-shadow h-[280px] relative group" aria-label="Şişli, İstanbul Ofis Lokasyon Haritası">
+                            <div class="w-full h-full bg-slate-100 rounded-2xl sm:rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden">
                                 <svg class="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                                     <path d="M 0,20 Q 30,25 50,5 Q 70,-15 100,20" fill="none" stroke="#6366f1" stroke-width="0.8" />
                                     <path d="M 0,60 Q 40,55 70,80 Q 90,95 100,60" fill="none" stroke="#6366f1" stroke-width="0.6" />
@@ -930,8 +948,8 @@
 
     <!-- Request Quote Modal -->
     <div id="quote-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-primary/40 backdrop-blur-sm" role="dialog" aria-modal="true">
-        <div class="bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl border border-outline-variant/30 overflow-hidden relative flex flex-col max-h-[90vh]">
-            <div class="p-8 border-b border-outline-variant/30 flex justify-between items-center bg-slate-50 text-left rtl:text-right">
+        <div class="bg-white w-full max-w-2xl rounded-3xl sm:rounded-[2.5rem] shadow-2xl border border-outline-variant/30 overflow-hidden relative flex flex-col max-h-[90vh]">
+            <div class="p-5 sm:p-8 border-b border-outline-variant/30 flex justify-between items-center bg-slate-50 text-left rtl:text-right">
                 <div>
                     <h3 class="text-xl font-bold text-primary" id="quote-modal-title" data-i18n="quoteModalTitle">Hizmet Talebi Oluştur</h3>
                     <p class="text-xs text-on-surface-variant mt-1" data-i18n="quoteModalDesc">İhtiyaçlarınızı belirtin, size en uygun ticari teklifi hazırlayalım.</p>
@@ -1010,8 +1028,8 @@
 
     <!-- Platform Onboarding Tour Modal -->
     <div id="tour-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-primary/40 backdrop-blur-sm" role="dialog" aria-modal="true">
-        <div class="bg-white w-full max-w-3xl rounded-[2.5rem] shadow-2xl border border-outline-variant/30 overflow-hidden relative flex flex-col max-h-[90vh]">
-            <div class="p-8 border-b border-outline-variant/30 flex justify-between items-center bg-slate-50 text-left rtl:text-right">
+        <div class="bg-white w-full max-w-3xl rounded-3xl sm:rounded-[2.5rem] shadow-2xl border border-outline-variant/30 overflow-hidden relative flex flex-col max-h-[90vh]">
+            <div class="p-5 sm:p-8 border-b border-outline-variant/30 flex justify-between items-center bg-slate-50 text-left rtl:text-right">
                 <div>
                     <h3 class="text-xl font-bold text-primary" data-i18n="tourTitle">SEALOR Müşteri Portalı Turu</h3>
                     <p class="text-xs text-on-surface-variant mt-1" data-i18n="tourDesc">Dijital tedarik zinciri ve lojistik yönetim altyapımızı tanıyın.</p>
@@ -1021,7 +1039,7 @@
                 </button>
             </div>
             
-            <div class="p-8 flex-1 overflow-y-auto">
+            <div class="p-5 sm:p-8 flex-1 overflow-y-auto">
                 <!-- Tour Slide 1 -->
                 <div class="tour-slide block text-left rtl:text-right" data-slide="1">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -1131,14 +1149,14 @@
 
     <!-- KVKK & Terms Modal -->
     <div id="terms-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-primary/40 backdrop-blur-sm" role="dialog" aria-modal="true">
-        <div class="bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl border border-outline-variant/30 overflow-hidden relative flex flex-col max-h-[80vh]">
-            <div class="p-8 border-b border-outline-variant/30 flex justify-between items-center bg-slate-50 text-left rtl:text-right">
+        <div class="bg-white w-full max-w-xl rounded-3xl sm:rounded-[2.5rem] shadow-2xl border border-outline-variant/30 overflow-hidden relative flex flex-col max-h-[80vh]">
+            <div class="p-5 sm:p-8 border-b border-outline-variant/30 flex justify-between items-center bg-slate-50 text-left rtl:text-right">
                 <h3 class="text-xl font-bold text-primary" id="terms-modal-title">Yasal Bilgilendirme</h3>
                 <button onclick="closeTermsModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-200 transition-colors text-primary" aria-label="Kapat">
                     <span class="material-symbols-outlined text-xl">close</span>
                 </button>
             </div>
-            <div class="p-8 overflow-y-auto flex-1 text-sm text-on-surface-variant leading-relaxed space-y-4 text-left rtl:text-right" id="terms-modal-body">
+            <div class="p-5 sm:p-8 overflow-y-auto flex-1 text-sm text-on-surface-variant leading-relaxed space-y-4 text-left rtl:text-right" id="terms-modal-body">
                 <!-- Dynamic Content Loaded by JS -->
             </div>
         </div>
