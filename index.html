@@ -2367,8 +2367,8 @@
                 });
 
                 const particles = [];
-                const particleCount = Math.min(35, Math.floor(width / 35));
-                const connectionDistance = 110;
+                const particleCount = Math.min(75, Math.floor(width / 18));
+                const connectionDistance = 120;
                 const mouse = { x: null, y: null, radius: 140 };
 
                 class Particle {
@@ -2379,8 +2379,8 @@
                         this.vy = (Math.random() - 0.5) * 0.4;
                         this.radius = Math.random() * 2 + 0.8;
                         this.color = Math.random() < 0.3 
-                            ? 'rgba(201, 162, 39, 0.65)'  // Glowing Gold Particle
-                            : 'rgba(165, 180, 252, 0.55)'; // Glowing Indigo/White Particle
+                            ? 'rgba(251, 191, 36, 0.85)'  // Glowing Gold Particle
+                            : 'rgba(224, 231, 255, 0.85)'; // Glowing Indigo/White Particle
                     }
 
                     update() {
@@ -2448,8 +2448,8 @@
                                 ctx.beginPath();
                                 ctx.moveTo(particles[i].x, particles[i].y);
                                 ctx.lineTo(particles[j].x, particles[j].y);
-                                const alpha = (1 - dist / connectionDistance) * 0.15;
-                                ctx.strokeStyle = `rgba(165, 180, 252, ${alpha})`;
+                                const alpha = (1 - dist / connectionDistance) * 0.22;
+                                ctx.strokeStyle = `rgba(199, 210, 254, ${alpha})`;
                                 ctx.lineWidth = 0.7;
                                 ctx.stroke();
                             }
