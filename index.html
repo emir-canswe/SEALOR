@@ -425,37 +425,6 @@
                     </div>
                 </div>
 
-                <!-- Client Panel Menu -->
-                <div class="relative">
-                    <button id="profile-btn" onclick="toggleProfileDropdown()" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition-colors" aria-label="Kullanıcı Paneli" aria-haspopup="true" aria-expanded="false">
-                        <span class="material-symbols-outlined text-[20px] text-primary">person</span>
-                    </button>
-                    <div id="profile-dropdown" class="absolute right-0 rtl:left-0 rtl:right-auto mt-3 w-72 bg-white border border-outline-variant/30 rounded-3xl shadow-2xl z-50 p-6 hidden origin-top-right rtl:origin-top-left">
-                        <div class="flex items-center gap-4 border-b border-outline-variant/30 pb-4 mb-4">
-                            <div class="w-12 h-12 bg-secondary/15 rounded-full flex items-center justify-center">
-                                <span class="material-symbols-outlined text-secondary text-2xl">business</span>
-                            </div>
-                            <div>
-                                <div class="font-bold text-primary text-sm line-clamp-1">SEALOR A.Ş.</div>
-                                <div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider" data-i18n="clientPanelBadge">Müşteri Paneli</div>
-                            </div>
-                        </div>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex justify-between text-xs">
-                                <span class="text-on-surface-variant" data-i18n="clientPanelOrders">Aktif Siparişler</span>
-                                <span class="font-bold text-primary" data-i18n="clientPanelOrdersVal">4 Sevkiyat</span>
-                            </div>
-                            <div class="flex justify-between text-xs">
-                                <span class="text-on-surface-variant" data-i18n="clientPanelType">Hesap Türü</span>
-                                <span class="font-bold text-secondary" data-i18n="clientPanelTypeVal">Kurumsal Ortak</span>
-                            </div>
-                        </div>
-                        <button onclick="simulateLogout()" class="w-full py-3 bg-slate-100 hover:bg-red-50 hover:text-red-600 text-on-surface-variant rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
-                            <span class="material-symbols-outlined text-sm">logout</span>
-                            <span data-i18n="clientPanelLogout">Oturumu Kapat</span>
-                        </button>
-                    </div>
-                </div>
 
                 <!-- Hamburger Button for Mobile -->
                 <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors" aria-label="Menüyü Aç" aria-expanded="false" id="hamburger-btn">
@@ -1757,27 +1726,12 @@
             }
         }
 
-        // Toggle user panel dropdown
-        function toggleProfileDropdown() {
-            const dropdown = document.getElementById('profile-dropdown');
-            const btn = document.getElementById('profile-btn');
-            const isActive = dropdown.classList.contains('dropdown-active');
-            
-            closeAllDropdowns();
-            
-            if (!isActive) {
-                dropdown.classList.remove('hidden');
-                btn.setAttribute('aria-expanded', 'true');
-                // Force layout reflow to trigger transition
-                dropdown.offsetHeight;
-                dropdown.classList.add('dropdown-active');
-            }
-        }
+
 
         // Close active dropdown panels
         function closeAllDropdowns() {
-            const dropdowns = ['lang-dropdown', 'profile-dropdown'];
-            const buttons = ['lang-btn', 'profile-btn'];
+            const dropdowns = ['lang-dropdown'];
+            const buttons = ['lang-btn'];
             
             dropdowns.forEach(id => {
                 const el = document.getElementById(id);
@@ -1800,8 +1754,7 @@
 
         // Close active panels on outside window clicks
         window.addEventListener('click', function(e) {
-            if (!e.target.closest('#lang-btn') && !e.target.closest('#lang-dropdown') &&
-                !e.target.closest('#profile-btn') && !e.target.closest('#profile-dropdown')) {
+            if (!e.target.closest('#lang-btn') && !e.target.closest('#lang-dropdown')) {
                 closeAllDropdowns();
             }
         });
@@ -1829,12 +1782,7 @@
             showToast(toastMsg, 'info');
         }
 
-        // Simulate Logout
-        function simulateLogout() {
-            closeAllDropdowns();
-            const toastMsg = translations[currentLang].toastLogoutSuccess;
-            showToast(toastMsg, 'info');
-        }
+
 
         // Mobile Menu Drawer Toggle
         function toggleMobileMenu() {
