@@ -501,6 +501,92 @@
                 padding-bottom: 120px;
             }
         }
+
+        /* ════════════════════════════════════════════════════
+           SECTION BACKGROUNDS — Her bölüm görsel olarak ayrı
+           ════════════════════════════════════════════════════ */
+
+        /* Hero — Koyu lacivert gradient (zaten var, override ekle) */
+        #hero {
+            background: linear-gradient(135deg, #050f1f 0%, #0a2050 50%, #0f2d6b 100%);
+        }
+
+        /* Hizmetler — Çok hafif mavi-beyaz */
+        #hizmetler {
+            background: linear-gradient(180deg, #f0f5ff 0%, #ffffff 100%) !important;
+            border-top: 4px solid #C9A227;
+            position: relative;
+        }
+
+        /* Hakkımızda — Koyu lacivert (zaten primary, güçlendir) */
+        #hakkimizda {
+            background: linear-gradient(135deg, #071730 0%, #0A2E5C 60%, #0d3370 100%) !important;
+            border-top: 4px solid #C9A227;
+        }
+
+        /* Sürdürülebilirlik — Koyu yeşil/teal karanlık ton */
+        #surdurulebilirlik {
+            background: linear-gradient(180deg, #04160e 0%, #072212 50%, #0a2e18 100%) !important;
+            border-top: 4px solid #22c55e;
+        }
+
+        /* SSS/FAQ — Sıcak krem/bej ton */
+        #faq {
+            background: linear-gradient(180deg, #fffdf5 0%, #fef9e8 100%) !important;
+            border-top: 4px solid #C9A227;
+        }
+
+        /* İletişim — Koyu çelik mavi */
+        #iletisim {
+            background: linear-gradient(135deg, #0d1f35 0%, #112840 50%, #0e2237 100%) !important;
+            border-top: 4px solid #3b82f6;
+        }
+
+        /* İletişim form alanları açık bg'de görünür olsun */
+        #iletisim input,
+        #iletisim select,
+        #iletisim textarea {
+            background: rgba(255,255,255,0.07) !important;
+            border-color: rgba(255,255,255,0.15) !important;
+            color: #fff !important;
+        }
+        #iletisim input::placeholder,
+        #iletisim textarea::placeholder {
+            color: rgba(255,255,255,0.4) !important;
+        }
+        #iletisim label {
+            color: rgba(255,255,255,0.7) !important;
+        }
+        #iletisim h2, #iletisim h3, #iletisim p {
+            color: #fff !important;
+        }
+        #iletisim .text-primary { color: #fff !important; }
+        #iletisim .text-on-surface-variant { color: rgba(255,255,255,0.6) !important; }
+
+        /* SSS accordion açık renklerde iyi görünsün */
+        #faq h2, #faq .text-primary { color: #0A2E5C !important; }
+        #faq details summary { color: #1e293b !important; }
+
+        /* Sürdürülebilirlik bölümü yazıları beyaz olsun */
+        #surdurulebilirlik h2,
+        #surdurulebilirlik h3,
+        #surdurulebilirlik p,
+        #surdurulebilirlik span,
+        #surdurulebilirlik .text-primary {
+            color: #fff !important;
+        }
+        #surdurulebilirlik .text-on-surface-variant { color: rgba(255,255,255,0.65) !important; }
+
+        /* Görsel bölüm ayracı — ince dekoratif çizgi + boşluk */
+        section + section {
+            position: relative;
+        }
+
+        /* Footer arka planı */
+        footer {
+            background: #030a15 !important;
+            border-top: 2px solid rgba(201,162,39,0.3) !important;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary/20 selection:text-secondary">
