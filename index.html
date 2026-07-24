@@ -765,12 +765,35 @@
         footer .bg-slate-50 a:hover {
             color: #C9A227 !important;
         }
-        /* Alt Telif Hakkı Çizgisi */
-        footer [data-i18n="footerRights"] {
-            color: #94a3b8 !important;
+        /* ════════════════════════════════════════════════════
+           MODAL CUSTOM STYLES — Özel Kaydırma Çubuğu & Stiller
+           ════════════════════════════════════════════════════ */
+        #quote-modal .overflow-y-auto,
+        #tour-modal .overflow-y-auto,
+        #terms-modal .overflow-y-auto {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(10, 46, 92, 0.25) transparent;
         }
-        footer .opacity-40 span {
-            color: #64748b !important;
+        #quote-modal .overflow-y-auto::-webkit-scrollbar,
+        #tour-modal .overflow-y-auto::-webkit-scrollbar,
+        #terms-modal .overflow-y-auto::-webkit-scrollbar {
+            width: 6px;
+        }
+        #quote-modal .overflow-y-auto::-webkit-scrollbar-track,
+        #tour-modal .overflow-y-auto::-webkit-scrollbar-track,
+        #terms-modal .overflow-y-auto::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #quote-modal .overflow-y-auto::-webkit-scrollbar-thumb,
+        #tour-modal .overflow-y-auto::-webkit-scrollbar-thumb,
+        #terms-modal .overflow-y-auto::-webkit-scrollbar-thumb {
+            background-color: rgba(10, 46, 92, 0.25);
+            border-radius: 9999px;
+        }
+        #quote-modal .overflow-y-auto::-webkit-scrollbar-thumb:hover,
+        #tour-modal .overflow-y-auto::-webkit-scrollbar-thumb:hover,
+        #terms-modal .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+            background-color: #C9A227;
         }
     </style>
 </head>
@@ -1443,122 +1466,125 @@
         </div>
     </footer>
 
-    <!-- Request Quote Modal -->
-    <div id="quote-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-[#030e1e]/60 backdrop-blur-md" role="dialog" aria-modal="true">
-        <div class="bg-slate-950/95 backdrop-blur-xl w-full max-w-2xl rounded-3xl sm:rounded-[2.5rem] shadow-2xl border border-white/10 overflow-hidden relative flex flex-col max-h-[90vh] text-white">
-            <div class="p-5 sm:p-8 border-b border-white/10 flex justify-between items-center bg-white/5 text-left rtl:text-right">
+    <!-- Request Quote Modal (Redesigned Executive Light Glass) -->
+    <div id="quote-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md" role="dialog" aria-modal="true">
+        <div class="bg-white/95 backdrop-blur-2xl w-full max-w-2xl rounded-3xl sm:rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(10,46,92,0.25)] border border-slate-200/90 overflow-hidden relative flex flex-col max-h-[90vh] text-slate-900">
+            <!-- Modal Header (Navy Corporate) -->
+            <div class="p-6 sm:p-8 bg-[#0A2E5C] flex justify-between items-center text-left rtl:text-right text-white">
                 <div>
                     <h3 class="text-xl font-bold text-white font-display-lg" id="quote-modal-title" data-i18n="quoteModalTitle">Hizmet Talebi Oluştur</h3>
-                    <p class="text-xs text-slate-400 mt-1" data-i18n="quoteModalDesc">İhtiyaçlarınızı belirtin, size en uygun ticari teklifi hazırlayalım.</p>
+                    <p class="text-xs text-amber-300/90 mt-1" data-i18n="quoteModalDesc">İhtiyaçlarınızı belirtin, size en uygun ticari teklifi hazırlayalım.</p>
                 </div>
-                <button onclick="closeQuoteModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white" aria-label="Kapat">
+                <button onclick="closeQuoteModal()" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all text-white" aria-label="Kapat">
                     <span class="material-symbols-outlined text-xl">close</span>
                 </button>
             </div>
-            <div class="p-8 overflow-y-auto flex-1 text-left rtl:text-right">
+            <!-- Modal Content Body -->
+            <div class="p-6 sm:p-8 overflow-y-auto flex-1 text-left rtl:text-right bg-white">
                 <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="space-y-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3" data-i18n="quoteModalSrvGrp">İlgilendiğiniz Hizmet Grubu *</label>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-3" data-i18n="quoteModalSrvGrp">İlgilendiğiniz Hizmet Grubu *</label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <label class="border border-white/10 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-secondary/50 hover:bg-white/5 transition-all duration-300 [&:has(input:checked)]:border-secondary [&:has(input:checked)]:bg-secondary/10 [&:has(input:checked)]:shadow-[0_0_15px_rgba(201,162,39,0.15)]">
-                                <input type="radio" id="srv-opt-1" name="quote-service" value="Dış Ticaret & Lojistik" required class="mt-1 text-secondary focus:ring-secondary">
+                            <label class="border border-slate-200 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-[#0A2E5C]/40 hover:bg-slate-50 transition-all duration-300 [&:has(input:checked)]:border-[#0A2E5C] [&:has(input:checked)]:bg-[#0A2E5C]/5 [&:has(input:checked)]:shadow-[0_0_15px_rgba(10,46,92,0.1)]">
+                                <input type="radio" id="srv-opt-1" name="quote-service" value="Dış Ticaret & Lojistik" required class="mt-1 text-[#0A2E5C] focus:ring-[#0A2E5C]">
                                 <div>
-                                    <span class="font-bold text-sm text-white block" data-i18n="srvCard1Title">Dış Ticaret &amp; Lojistik</span>
-                                    <span class="text-xs text-slate-400 block mt-1" data-i18n="srvCard1Sub">İthalat, ihracat, uluslararası nakliye.</span>
+                                    <span class="font-bold text-sm text-slate-900 block" data-i18n="srvCard1Title">Dış Ticaret &amp; Lojistik</span>
+                                    <span class="text-xs text-slate-500 block mt-1" data-i18n="srvCard1Sub">İthalat, ihracat, uluslararası nakliye.</span>
                                 </div>
                             </label>
-                            <label class="border border-white/10 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-secondary/50 hover:bg-white/5 transition-all duration-300 [&:has(input:checked)]:border-secondary [&:has(input:checked)]:bg-secondary/10 [&:has(input:checked)]:shadow-[0_0_15px_rgba(201,162,39,0.15)]">
-                                <input type="radio" id="srv-opt-2" name="quote-service" value="E-Ticaret & Dijital Ticaret" class="mt-1 text-secondary focus:ring-secondary">
+                            <label class="border border-slate-200 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-[#0A2E5C]/40 hover:bg-slate-50 transition-all duration-300 [&:has(input:checked)]:border-[#0A2E5C] [&:has(input:checked)]:bg-[#0A2E5C]/5 [&:has(input:checked)]:shadow-[0_0_15px_rgba(10,46,92,0.1)]">
+                                <input type="radio" id="srv-opt-2" name="quote-service" value="E-Ticaret & Dijital Ticaret" class="mt-1 text-[#0A2E5C] focus:ring-[#0A2E5C]">
                                 <div>
-                                    <span class="font-bold text-sm text-white block" data-i18n="srvCard2Title">Dijital &amp; E-Ticaret</span>
-                                    <span class="text-xs text-slate-400 block mt-1" data-i18n="srvCard2Sub">Mikro ihracat, global pazaryerleri.</span>
+                                    <span class="font-bold text-sm text-slate-900 block" data-i18n="srvCard2Title">Dijital &amp; E-Ticaret</span>
+                                    <span class="text-xs text-slate-500 block mt-1" data-i18n="srvCard2Sub">Mikro ihracat, global pazaryerleri.</span>
                                 </div>
                             </label>
-                            <label class="border border-white/10 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-secondary/50 hover:bg-white/5 transition-all duration-300 [&:has(input:checked)]:border-secondary [&:has(input:checked)]:bg-secondary/10 [&:has(input:checked)]:shadow-[0_0_15px_rgba(201,162,39,0.15)]">
-                                <input type="radio" id="srv-opt-3" name="quote-service" value="Genel Ticaret & Pazarlama" class="mt-1 text-secondary focus:ring-secondary">
+                            <label class="border border-slate-200 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-[#0A2E5C]/40 hover:bg-slate-50 transition-all duration-300 [&:has(input:checked)]:border-[#0A2E5C] [&:has(input:checked)]:bg-[#0A2E5C]/5 [&:has(input:checked)]:shadow-[0_0_15px_rgba(10,46,92,0.1)]">
+                                <input type="radio" id="srv-opt-3" name="quote-service" value="Genel Ticaret & Pazarlama" class="mt-1 text-[#0A2E5C] focus:ring-[#0A2E5C]">
                                 <div>
-                                    <span class="font-bold text-sm text-white block" data-i18n="srvCard3Title">Genel Ticaret &amp; Pazarlama</span>
-                                    <span class="text-xs text-slate-400 block mt-1" data-i18n="srvCard3Sub">Tekstil, gıda, kimya toptan alım-satım.</span>
+                                    <span class="font-bold text-sm text-slate-900 block" data-i18n="srvCard3Title">Genel Ticaret &amp; Pazarlama</span>
+                                    <span class="text-xs text-slate-500 block mt-1" data-i18n="srvCard3Sub">Tekstil, gıda, kimya toptan alım-satım.</span>
                                 </div>
                             </label>
-                            <label class="border border-white/10 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-secondary/50 hover:bg-white/5 transition-all duration-300 [&:has(input:checked)]:border-secondary [&:has(input:checked)]:bg-secondary/10 [&:has(input:checked)]:shadow-[0_0_15px_rgba(201,162,39,0.15)]">
-                                <input type="radio" id="srv-opt-4" name="quote-service" value="Distribütörlük & Temsilcilik" class="mt-1 text-secondary focus:ring-secondary">
+                            <label class="border border-slate-200 rounded-2xl p-4 flex items-start gap-3 cursor-pointer hover:border-[#0A2E5C]/40 hover:bg-slate-50 transition-all duration-300 [&:has(input:checked)]:border-[#0A2E5C] [&:has(input:checked)]:bg-[#0A2E5C]/5 [&:has(input:checked)]:shadow-[0_0_15px_rgba(10,46,92,0.1)]">
+                                <input type="radio" id="srv-opt-4" name="quote-service" value="Distribütörlük & Temsilcilik" class="mt-1 text-[#0A2E5C] focus:ring-[#0A2E5C]">
                                 <div>
-                                    <span class="font-bold text-sm text-white block" data-i18n="srvCard4Title">Distribütörlük &amp; Bayilik</span>
-                                    <span class="text-xs text-slate-400 block mt-1" data-i18n="srvCard4Sub">Mümessillik, franchising anlaşmaları.</span>
+                                    <span class="font-bold text-sm text-slate-900 block" data-i18n="srvCard4Title">Distribütörlük &amp; Bayilik</span>
+                                    <span class="text-xs text-slate-500 block mt-1" data-i18n="srvCard4Sub">Mümessillik, franchising anlaşmaları.</span>
                                 </div>
                             </label>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                            <label for="quote-company" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" data-i18n="quoteModalCompany">Firma Adı *</label>
-                            <input type="text" id="quote-company" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all focus:bg-white/10 focus:shadow-[0_0_15px_rgba(201,162,39,0.08)]" placeholder="Şirketiniz Ltd. Şti." data-i18n-placeholder="quoteModalCompanyPlaceholder">
+                            <label for="quote-company" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" data-i18n="quoteModalCompany">Firma Adı *</label>
+                            <input type="text" id="quote-company" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#0A2E5C]/20 focus:border-[#0A2E5C] transition-all outline-none" placeholder="Şirketiniz Ltd. Şti." data-i18n-placeholder="quoteModalCompanyPlaceholder">
                         </div>
                         <div>
-                            <label for="quote-name" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" data-i18n="quoteModalName">Yetkili Adı Soyadı *</label>
-                            <input type="text" id="quote-name" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all focus:bg-white/10 focus:shadow-[0_0_15px_rgba(201,162,39,0.08)]" placeholder="Ahmet Yılmaz" data-i18n-placeholder="quoteModalNamePlaceholder">
+                            <label for="quote-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" data-i18n="quoteModalName">Yetkili Adı Soyadı *</label>
+                            <input type="text" id="quote-name" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#0A2E5C]/20 focus:border-[#0A2E5C] transition-all outline-none" placeholder="Ahmet Yılmaz" data-i18n-placeholder="quoteModalNamePlaceholder">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                            <label for="quote-email" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" data-i18n="quoteModalEmail">E-posta Adresi *</label>
-                            <input type="email" id="quote-email" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all focus:bg-white/10 focus:shadow-[0_0_15px_rgba(201,162,39,0.08)]" placeholder="ahmet@sirketiniz.com" data-i18n-placeholder="quoteModalEmailPlaceholder">
+                            <label for="quote-email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" data-i18n="quoteModalEmail">E-posta Adresi *</label>
+                            <input type="email" id="quote-email" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#0A2E5C]/20 focus:border-[#0A2E5C] transition-all outline-none" placeholder="ahmet@sirketiniz.com" data-i18n-placeholder="quoteModalEmailPlaceholder">
                         </div>
                         <div>
-                            <label for="quote-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" data-i18n="quoteModalPhone">Telefon Numarası *</label>
-                            <input type="tel" id="quote-phone" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all focus:bg-white/10 focus:shadow-[0_0_15px_rgba(201,162,39,0.08)]" placeholder="+90 212 000 0000" data-i18n-placeholder="quoteModalPhonePlaceholder">
+                            <label for="quote-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" data-i18n="quoteModalPhone">Telefon Numarası *</label>
+                            <input type="tel" id="quote-phone" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#0A2E5C]/20 focus:border-[#0A2E5C] transition-all outline-none" placeholder="+90 212 000 0000" data-i18n-placeholder="quoteModalPhonePlaceholder">
                         </div>
                     </div>
                     <div>
-                        <label for="quote-detail" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" data-i18n="quoteModalDetails">Talep Detayları</label>
-                        <textarea id="quote-detail" rows="4" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all focus:bg-white/10 focus:shadow-[0_0_15px_rgba(201,162,39,0.08)]" placeholder="Ürün grupları, hacim ve hedef ülkeler hakkında kısa bilgi..." data-i18n-placeholder="quoteModalDetailsPlaceholder"></textarea>
+                        <label for="quote-detail" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" data-i18n="quoteModalDetails">Talep Detayları</label>
+                        <textarea id="quote-detail" rows="4" class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#0A2E5C]/20 focus:border-[#0A2E5C] transition-all outline-none" placeholder="Ürün grupları, hacim ve hedef ülkeler hakkında kısa bilgi..." data-i18n-placeholder="quoteModalDetailsPlaceholder"></textarea>
                     </div>
-                    <div class="pt-4 border-t border-white/10 flex justify-end gap-4">
-                        <button type="button" onclick="closeQuoteModal()" class="px-6 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-wider transition-all" data-i18n="quoteModalCancel">Vazgeç</button>
-                        <button type="submit" class="px-8 py-4 bg-secondary text-primary hover:bg-white hover:text-primary rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-secondary/15" data-i18n="quoteModalSubmit">Talebi Gönder</button>
+                    <div class="pt-4 border-t border-slate-200/80 flex justify-end gap-4">
+                        <button type="button" onclick="closeQuoteModal()" class="px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs uppercase tracking-wider transition-all" data-i18n="quoteModalCancel">Vazgeç</button>
+                        <button type="submit" class="px-8 py-3.5 bg-[#0A2E5C] hover:bg-[#C9A227] text-white hover:text-[#0A2E5C] rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#0A2E5C]/20" data-i18n="quoteModalSubmit">Talebi Gönder</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Platform Onboarding Tour Modal -->
-    <div id="tour-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-[#030e1e]/60 backdrop-blur-md" role="dialog" aria-modal="true">
-        <div class="bg-slate-950/95 backdrop-blur-xl w-full max-w-3xl rounded-3xl sm:rounded-[2.5rem] shadow-2xl border border-white/10 overflow-hidden relative flex flex-col max-h-[90vh] text-white">
-            <div class="p-5 sm:p-8 border-b border-white/10 flex justify-between items-center bg-white/5 text-left rtl:text-right">
+    <!-- Platform Onboarding Tour Modal (Executive Light Glass) -->
+    <div id="tour-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md" role="dialog" aria-modal="true">
+        <div class="bg-white/95 backdrop-blur-2xl w-full max-w-3xl rounded-3xl sm:rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(10,46,92,0.25)] border border-slate-200/90 overflow-hidden relative flex flex-col max-h-[90vh] text-slate-900">
+            <!-- Modal Header -->
+            <div class="p-6 sm:p-8 bg-[#0A2E5C] flex justify-between items-center text-left rtl:text-right text-white">
                 <div>
                     <h3 class="text-xl font-bold text-white font-display-lg" data-i18n="tourTitle">SEALOR Müşteri Portalı Turu</h3>
-                    <p class="text-xs text-slate-400 mt-1" data-i18n="tourDesc">Dijital tedarik zinciri ve lojistik yönetim altyapımızı tanıyın.</p>
+                    <p class="text-xs text-amber-300/90 mt-1" data-i18n="tourDesc">Dijital tedarik zinciri ve lojistik yönetim altyapımızı tanıyın.</p>
                 </div>
-                <button onclick="closeTourModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white" aria-label="Kapat">
+                <button onclick="closeTourModal()" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all text-white" aria-label="Kapat">
                     <span class="material-symbols-outlined text-xl">close</span>
                 </button>
             </div>
             
-            <div class="p-5 sm:p-8 flex-1 overflow-y-auto">
+            <div class="p-6 sm:p-8 flex-1 overflow-y-auto bg-white">
                 <!-- Tour Slide 1 -->
                 <div class="tour-slide block text-left rtl:text-right" data-slide="1">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-4">
-                            <span class="px-3.5 py-1 bg-secondary/15 border border-secondary/30 text-secondary text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="tourStep1">Adım 1 / 3</span>
-                            <h4 class="text-2xl font-bold text-white font-display-lg" data-i18n="tourSlide1Title">Gerçek Zamanlı Sevkiyat İzleme</h4>
-                            <p class="text-sm text-slate-300 leading-relaxed font-body-sm" data-i18n="tourSlide1Desc">
+                            <span class="px-3.5 py-1 bg-[#0A2E5C]/10 border border-[#0A2E5C]/20 text-[#0A2E5C] text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="tourStep1">Adım 1 / 3</span>
+                            <h4 class="text-2xl font-bold text-slate-900 font-display-lg" data-i18n="tourSlide1Title">Gerçek Zamanlı Sevkiyat İzleme</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed font-body-sm" data-i18n="tourSlide1Desc">
                                 SEALOR dijital kontrol paneli sayesinde tüm deniz, hava ve kara gönderilerinizin konumlarını, tahmini teslim varış zamanlarını (ETA) ve gümrük durumlarını harita üzerinden 7/24 izleyebilirsiniz.
                             </p>
                         </div>
-                        <div class="bg-black/40 backdrop-blur-md text-slate-300 p-6 rounded-3xl border border-white/5 font-mono text-xs shadow-inner select-none text-left relative overflow-hidden group">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-3 mb-3">
+                        <div class="bg-[#071730] text-slate-200 p-6 rounded-3xl border border-slate-700/60 font-mono text-xs shadow-xl select-none text-left relative overflow-hidden group">
+                            <div class="flex justify-between items-center border-b border-slate-700/60 pb-3 mb-3">
                                 <span class="text-emerald-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse"></span> SEVKİYAT #SLR-4421</span>
-                                <span class="text-[10px] text-slate-500">TR -> DE</span>
+                                <span class="text-[10px] text-slate-400">TR -> DE</span>
                             </div>
                             <div class="space-y-2 text-[11px]">
-                                <p><span class="text-slate-500">Konteyner:</span> 40ft High Cube</p>
-                                <p><span class="text-slate-500">Son Durum:</span> Gümrük İşlemleri Sürüyor</p>
-                                <p><span class="text-slate-500">Konum:</span> Ambarlı Limanı, İstanbul</p>
-                                <p><span class="text-slate-500">ETA:</span> 28 Temmuz 2026</p>
+                                <p><span class="text-slate-400">Konteyner:</span> 40ft High Cube</p>
+                                <p><span class="text-slate-400">Son Durum:</span> Gümrük İşlemleri Sürüyor</p>
+                                <p><span class="text-slate-400">Konum:</span> Ambarlı Limanı, İstanbul</p>
+                                <p><span class="text-slate-400">ETA:</span> 28 Temmuz 2026</p>
                                 <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
-                                    <div class="bg-secondary h-full w-[65%]"></div>
+                                    <div class="bg-[#C9A227] h-full w-[65%]"></div>
                                 </div>
                             </div>
                         </div>
@@ -1569,14 +1595,14 @@
                 <div class="tour-slide hidden text-left rtl:text-right" data-slide="2">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-4">
-                            <span class="px-3.5 py-1 bg-secondary/15 border border-secondary/30 text-secondary text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="tourStep2">Adım 2 / 3</span>
-                            <h4 class="text-2xl font-bold text-white font-display-lg" data-i18n="tourSlide2Title">Dijital E-Ticaret &amp; Mikro İhracat</h4>
-                            <p class="text-sm text-slate-300 leading-relaxed font-body-sm" data-i18n="tourSlide2Desc">
+                            <span class="px-3.5 py-1 bg-[#0A2E5C]/10 border border-[#0A2E5C]/20 text-[#0A2E5C] text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="tourStep2">Adım 2 / 3</span>
+                            <h4 class="text-2xl font-bold text-slate-900 font-display-lg" data-i18n="tourSlide2Title">Dijital E-Ticaret &amp; Mikro İhracat</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed font-body-sm" data-i18n="tourSlide2Desc">
                                 Amazon, Etsy ve diğer pazar yerleri ile API düzeyinde entegre çalışıyoruz. Dijital satışlarınız sonucunda hazırlanan mikro ihracat (ETGB) işlemlerini tek tıkla gümrüğe bildiriyoruz.
                             </p>
                         </div>
-                        <div class="bg-black/40 backdrop-blur-md text-slate-300 p-6 rounded-3xl border border-white/5 font-mono text-xs shadow-inner select-none text-left relative overflow-hidden group">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-3 mb-3">
+                        <div class="bg-[#071730] text-slate-200 p-6 rounded-3xl border border-slate-700/60 font-mono text-xs shadow-xl select-none text-left relative overflow-hidden group">
+                            <div class="flex justify-between items-center border-b border-slate-700/60 pb-3 mb-3">
                                 <span class="text-indigo-400">E-TİCARET DETAYLARI</span>
                                 <span class="text-[10px] text-emerald-400">Aktif</span>
                             </div>
@@ -1589,7 +1615,7 @@
                                     <span>Etsy EU Envanter:</span>
                                     <span class="text-white">850 Adet</span>
                                 </div>
-                                <div class="flex justify-between border-t border-white/10 pt-2">
+                                <div class="flex justify-between border-t border-slate-700/60 pt-2">
                                     <span>Aylık Mikro İhracat:</span>
                                     <span class="text-emerald-400">$34,850</span>
                                 </div>
@@ -1602,29 +1628,29 @@
                 <div class="tour-slide hidden text-left rtl:text-right" data-slide="3">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-4">
-                            <span class="px-3.5 py-1 bg-secondary/15 border border-secondary/30 text-secondary text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="tourStep3">Adım 3 / 3</span>
-                            <h4 class="text-2xl font-bold text-white font-display-lg" data-i18n="tourSlide3Title">Dokümantasyon &amp; Uyum</h4>
-                            <p class="text-sm text-slate-300 leading-relaxed font-body-sm" data-i18n="tourSlide3Desc">
+                            <span class="px-3.5 py-1 bg-[#0A2E5C]/10 border border-[#0A2E5C]/20 text-[#0A2E5C] text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="tourStep3">Adım 3 / 3</span>
+                            <h4 class="text-2xl font-bold text-slate-900 font-display-lg" data-i18n="tourSlide3Title">Dokümantasyon &amp; Uyum</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed font-body-sm" data-i18n="tourSlide3Desc">
                                 Konşimentolar, gümrük beyannameleri, menşe şahadetnameleri ve distribütörlük lisans anlaşmaları gibi tüm kritik evraklarınız şifreli bulut ortamımızda arşivlenir, indirilmeye hazır tutulur.
                             </p>
                         </div>
-                        <div class="bg-black/40 backdrop-blur-md text-slate-300 p-6 rounded-3xl border border-white/5 font-mono text-xs shadow-inner select-none text-left relative overflow-hidden group">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-3 mb-3">
+                        <div class="bg-[#071730] text-slate-200 p-6 rounded-3xl border border-slate-700/60 font-mono text-xs shadow-xl select-none text-left relative overflow-hidden group">
+                            <div class="flex justify-between items-center border-b border-slate-700/60 pb-3 mb-3">
                                 <span class="text-slate-400">BELGE KÜTÜPHANESİ</span>
                                 <span class="material-symbols-outlined text-slate-400 text-sm">folder</span>
                             </div>
                             <div class="space-y-2 text-[11px]">
                                 <div class="flex items-center justify-between hover:text-white cursor-pointer">
                                     <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-xs text-red-400">description</span> Konşimento_SLR_DE.pdf</span>
-                                    <span class="material-symbols-outlined text-xs text-slate-500">download</span>
+                                    <span class="material-symbols-outlined text-xs text-slate-400">download</span>
                                 </div>
                                 <div class="flex items-center justify-between hover:text-white cursor-pointer">
                                     <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-xs text-red-400">description</span> ETGB_Beyanname_TR.pdf</span>
-                                    <span class="material-symbols-outlined text-xs text-slate-500">download</span>
+                                    <span class="material-symbols-outlined text-xs text-slate-400">download</span>
                                 </div>
                                 <div class="flex items-center justify-between hover:text-white cursor-pointer">
                                     <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-xs text-red-400">description</span> Distribütör_Sözleşmesi.pdf</span>
-                                    <span class="material-symbols-outlined text-xs text-slate-500">download</span>
+                                    <span class="material-symbols-outlined text-xs text-slate-400">download</span>
                                 </div>
                             </div>
                         </div>
@@ -1632,29 +1658,29 @@
                 </div>
             </div>
             
-            <div class="p-8 border-t border-white/10 bg-white/5 flex justify-between items-center">
-                <button id="tour-prev-btn" onclick="prevTourSlide()" class="px-6 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-wider transition-all opacity-50 cursor-not-allowed" disabled data-i18n="tourPrev">Geri</button>
+            <div class="p-6 sm:p-8 border-t border-slate-200 bg-slate-50 flex justify-between items-center">
+                <button id="tour-prev-btn" onclick="prevTourSlide()" class="px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-bold text-xs uppercase tracking-wider transition-all opacity-50 cursor-not-allowed" disabled data-i18n="tourPrev">Geri</button>
                 <div class="flex gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-secondary" data-dot="1"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-white/20" data-dot="2"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-white/20" data-dot="3"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#C9A227]" data-dot="1"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-300" data-dot="2"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-300" data-dot="3"></span>
                 </div>
-                <button id="tour-next-btn" onclick="nextTourSlide()" class="px-6 py-3 bg-secondary text-primary hover:bg-white hover:text-primary rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-secondary/15" data-i18n="tourNext">İleri</button>
+                <button id="tour-next-btn" onclick="nextTourSlide()" class="px-6 py-3 bg-[#0A2E5C] text-white hover:bg-[#C9A227] hover:text-[#0A2E5C] rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md" data-i18n="tourNext">İleri</button>
             </div>
         </div>
     </div>
 
 
-    <!-- KVKK & Terms Modal -->
-    <div id="terms-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-[#030e1e]/60 backdrop-blur-md" role="dialog" aria-modal="true">
-        <div class="bg-slate-950/95 backdrop-blur-xl w-full max-w-xl rounded-3xl sm:rounded-[2.5rem] shadow-2xl border border-white/10 overflow-hidden relative flex flex-col max-h-[80vh] text-white">
-            <div class="p-5 sm:p-8 border-b border-white/10 flex justify-between items-center bg-white/5 text-left rtl:text-right">
+    <!-- KVKK & Terms Modal (Executive Light Glass) -->
+    <div id="terms-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md" role="dialog" aria-modal="true">
+        <div class="bg-white/95 backdrop-blur-2xl w-full max-w-xl rounded-3xl sm:rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(10,46,92,0.25)] border border-slate-200/90 overflow-hidden relative flex flex-col max-h-[80vh] text-slate-900">
+            <div class="p-6 sm:p-8 bg-[#0A2E5C] flex justify-between items-center text-left rtl:text-right text-white">
                 <h3 class="text-xl font-bold text-white font-display-lg" id="terms-modal-title">Yasal Bilgilendirme</h3>
-                <button onclick="closeTermsModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white" aria-label="Kapat">
+                <button onclick="closeTermsModal()" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all text-white" aria-label="Kapat">
                     <span class="material-symbols-outlined text-xl">close</span>
                 </button>
             </div>
-            <div class="p-5 sm:p-8 overflow-y-auto flex-1 text-sm text-slate-300 leading-relaxed space-y-4 text-left rtl:text-right" id="terms-modal-body">
+            <div class="p-6 sm:p-8 overflow-y-auto flex-1 text-sm text-slate-700 leading-relaxed space-y-4 text-left rtl:text-right bg-white" id="terms-modal-body">
                 <!-- Dynamic Content Loaded by JS -->
             </div>
         </div>
@@ -2399,11 +2425,11 @@
             });
             
             document.querySelectorAll('[data-dot]').forEach(dot => {
-                dot.classList.remove('bg-secondary', 'bg-white/20');
+                dot.classList.remove('bg-[#C9A227]', 'bg-secondary', 'bg-white/20', 'bg-slate-300');
                 if (parseInt(dot.getAttribute('data-dot')) === tourSlide) {
-                    dot.classList.add('bg-secondary');
+                    dot.classList.add('bg-[#C9A227]');
                 } else {
-                    dot.classList.add('bg-white/20');
+                    dot.classList.add('bg-slate-300');
                 }
             });
             
