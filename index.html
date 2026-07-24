@@ -2306,7 +2306,13 @@
 
         // Dynamic Toast Notification Alert System
         function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'fixed bottom-6 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm';
+                document.body.appendChild(container);
+            }
             const toast = document.createElement('div');
             toast.className = `p-4 rounded-2xl shadow-xl flex items-center gap-3 text-sm font-semibold pointer-events-auto transition-all duration-300 transform translate-x-20 rtl:-translate-x-20 opacity-0 border`;
             
@@ -2837,5 +2843,8 @@
             }
         });
     </script>
+
+    <!-- Toast Notification Container Element -->
+    <div id="toast-container" class="fixed bottom-6 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm"></div>
 </body>
 </html>
