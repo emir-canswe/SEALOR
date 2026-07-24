@@ -82,8 +82,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"/>
     </noscript>
     
-    <!-- Tailwind Script with configuration (Deferred for zero mobile blocking) -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries" defer></script>
+    <!-- Tailwind Script with configuration -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -2750,7 +2750,7 @@
                 });
             }
 
-            // Connected Network Particles Background (Mobile CPU & Battery Optimized)
+            // Connected Network Particles Background
             const canvas = document.getElementById('hero-particles');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
@@ -2758,40 +2758,41 @@
 
                 let width = canvas.width = heroSection.offsetWidth;
                 let height = canvas.height = heroSection.offsetHeight;
-                const isMobile = window.innerWidth < 768;
 
                 window.addEventListener('resize', () => {
                     if (heroSection) {
                         width = canvas.width = heroSection.offsetWidth;
                         height = canvas.height = heroSection.offsetHeight;
                     }
-                }, { passive: true });
+                });
 
                 const particles = [];
-                const particleCount = isMobile ? 12 : 32;
-                const connectionDistance = isMobile ? 70 : 105;
-                const mouse = { x: null, y: null, radius: 120 };
+                const particleCount = Math.min(75, Math.floor(width / 18));
+                const connectionDistance = 120;
+                const mouse = { x: null, y: null, radius: 140 };
 
                 class Particle {
                     constructor() {
                         this.x = Math.random() * width;
                         this.y = Math.random() * height;
-                        this.vx = (Math.random() - 0.5) * 0.3;
-                        this.vy = (Math.random() - 0.5) * 0.3;
-                        this.radius = Math.random() * 1.8 + 0.8;
+                        this.vx = (Math.random() - 0.5) * 0.4;
+                        this.vy = (Math.random() - 0.5) * 0.4;
+                        this.radius = Math.random() * 2 + 0.8;
                         this.color = Math.random() < 0.3 
-                            ? 'rgba(251, 191, 36, 0.85)'
-                            : 'rgba(224, 231, 255, 0.85)';
+                            ? 'rgba(251, 191, 36, 0.85)'  // Glowing Gold Particle
+                            : 'rgba(224, 231, 255, 0.85)'; // Glowing Indigo/White Particle
                     }
 
                     update() {
                         this.x += this.vx;
                         this.y += this.vy;
 
+                        // Bounce off walls
                         if (this.x < 0 || this.x > width) this.vx *= -1;
                         if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                        if (!isMobile && mouse.x && mouse.y) {
+                        // Mouse interaction
+                        if (mouse.x && mouse.y) {
                             const dx = mouse.x - this.x;
                             const dy = mouse.y - this.y;
                             const dist = Math.sqrt(dx * dx + dy * dy);
@@ -2815,56 +2816,46 @@
                     particles.push(new Particle());
                 }
 
-                if (!isMobile && heroSection) {
+                if (heroSection) {
                     heroSection.addEventListener('mousemove', (e) => {
                         const rect = heroSection.getBoundingClientRect();
                         mouse.x = e.clientX - rect.left;
                         mouse.y = e.clientY - rect.top;
-                    }, { passive: true });
+                    });
 
                     heroSection.addEventListener('mouseleave', () => {
                         mouse.x = null;
                         mouse.y = null;
-                    }, { passive: true });
-                }
-
-                let isHeroVisible = true;
-                if ('IntersectionObserver' in window && heroSection) {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            isHeroVisible = entry.isIntersecting;
-                        });
-                    }, { threshold: 0.05 });
-                    observer.observe(heroSection);
+                    });
                 }
 
                 function animate() {
-                    if (isHeroVisible) {
-                        ctx.clearRect(0, 0, width, height);
+                    ctx.clearRect(0, 0, width, height);
 
-                        particles.forEach(p => {
-                            p.update();
-                            p.draw();
-                        });
+                    particles.forEach(p => {
+                        p.update();
+                        p.draw();
+                    });
 
-                        for (let i = 0; i < particles.length; i++) {
-                            for (let j = i + 1; j < particles.length; j++) {
-                                const dx = particles[i].x - particles[j].x;
-                                const dy = particles[i].y - particles[j].y;
-                                const dist = Math.sqrt(dx * dx + dy * dy);
+                    // Draw connection lines
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
 
-                                if (dist < connectionDistance) {
-                                    ctx.beginPath();
-                                    ctx.moveTo(particles[i].x, particles[i].y);
-                                    ctx.lineTo(particles[j].x, particles[j].y);
-                                    const alpha = (1 - dist / connectionDistance) * 0.2;
-                                    ctx.strokeStyle = `rgba(199, 210, 254, ${alpha})`;
-                                    ctx.lineWidth = 0.6;
-                                    ctx.stroke();
-                                }
+                            if (dist < connectionDistance) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                const alpha = (1 - dist / connectionDistance) * 0.22;
+                                ctx.strokeStyle = `rgba(199, 210, 254, ${alpha})`;
+                                ctx.lineWidth = 0.7;
+                                ctx.stroke();
                             }
                         }
                     }
+
                     requestAnimationFrame(animate);
                 }
 
