@@ -703,10 +703,74 @@
             position: relative;
         }
 
-        /* Footer arka planı */
+        /* ════════════════════════════════════════════════════
+           FOOTER STYLES — Yüksek Kontrast & Şık Koyu Tema
+           ════════════════════════════════════════════════════ */
         footer {
             background: #030a15 !important;
             border-top: 2px solid rgba(201,162,39,0.3) !important;
+            color: #cbd5e1 !important;
+        }
+        footer h3 {
+            color: #C9A227 !important; /* Altın başlıklar: HIZLI MENÜ, KURUMSAL, İLETİŞİM */
+            font-weight: 800 !important;
+            letter-spacing: 0.25em !important;
+        }
+        footer span.font-display-lg,
+        footer .text-primary {
+            color: #ffffff !important; /* SEALOR marka ismi ve ana yazılar */
+        }
+        footer p {
+            color: #94a3b8 !important; /* Açıklama metinleri & adres */
+        }
+        footer a {
+            color: #cbd5e1 !important;
+            transition: all 0.3s ease;
+        }
+        footer a:hover {
+            color: #C9A227 !important; /* Altın rengi hover */
+        }
+        footer .border-outline-variant\/30,
+        footer .border-outline-variant,
+        footer .border-t {
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        /* Sosyal Medya İkon Butonları */
+        footer a.rounded-full.border {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: #cbd5e1 !important;
+            background: rgba(255, 255, 255, 0.04) !important;
+        }
+        footer a.rounded-full.border:hover {
+            border-color: #C9A227 !important;
+            background-color: #C9A227 !important;
+            color: #030a15 !important;
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
+        }
+        /* Müşteri Destek Kartı - Lüks Koyu Cam Kart */
+        footer .bg-slate-50 {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            backdrop-filter: blur(12px);
+        }
+        footer .bg-slate-50 [data-i18n="customerSupportLbl"],
+        footer .bg-slate-50 .text-on-surface-variant {
+            color: #C9A227 !important; /* Altın destek başlığı */
+        }
+        footer .bg-slate-50 a {
+            color: #ffffff !important;
+            font-size: 1.125rem !important;
+            font-weight: 700 !important;
+        }
+        footer .bg-slate-50 a:hover {
+            color: #C9A227 !important;
+        }
+        /* Alt Telif Hakkı Çizgisi */
+        footer [data-i18n="footerRights"] {
+            color: #94a3b8 !important;
+        }
+        footer .opacity-40 span {
+            color: #64748b !important;
         }
     </style>
 </head>
