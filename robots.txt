@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emir-canswe.github.io/SEALOR/sitemap.xml

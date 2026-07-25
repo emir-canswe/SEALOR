@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://emir-canswe.github.io/SEALOR/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://emir-canswe.github.io/SEALOR/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://emir-canswe.github.io/SEALOR/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://emir-canswe.github.io/SEALOR/?lang=ar"/>
+    <image:image>
+      <image:loc>https://emir-canswe.github.io/SEALOR/global_trade_hero.jpg</image:loc>
+      <image:title>SEALOR İhrakat ve İthalat Küresel Lojistik</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://emir-canswe.github.io/SEALOR/logistics_control_center.jpg</image:loc>
+      <image:title>SEALOR Operasyon ve Kontrol Merkezi</image:title>
+    </image:image>
+  </url>
+</urlset>
