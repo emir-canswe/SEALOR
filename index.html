@@ -2416,15 +2416,16 @@
             const messageText = document.getElementById('contact-message')?.value || 'Belirtilmedi';
 
             const whatsappMessage = 
-`💬 *SEALOR İLETİŞİM MESAJI*
------------------------------------------
-👤 *Ad Soyad:* ${name}
-📞 *Telefon:* ${phone}
-✉️ *E-posta:* ${email}
-📌 *Konu:* ${subject}
-📝 *Mesaj:* ${messageText}
------------------------------------------
-_SEALOR Web Sitesi İletişim Formundan Gönderildi_`;
+`*SEALOR İLETİŞİM MESAJI*
+
+• *Ad Soyad:* ${name}
+• *Telefon:* ${phone}
+• *E-posta:* ${email}
+• *Konu:* ${subject}
+• *Mesaj:* ${messageText}
+
+____________________________________
+_SEALOR İhracat & İthalat Ltd. Şti._`;
 
             const whatsappUrl = `https://wa.me/905010022295?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -2476,18 +2477,19 @@ _SEALOR Web Sitesi İletişim Formundan Gönderildi_`;
             const detail = document.getElementById('quote-detail')?.value || 'Belirtilmedi';
             const trackingId = 'SLR-' + Math.floor(100000 + Math.random() * 900000);
 
-            // Construct WhatsApp message with complete request details
+            // Construct clean, high-end WhatsApp message
             const message = 
-`📌 *SEALOR HİZMET TALEBİ* (${trackingId})
------------------------------------------
-🏢 *Firma Adı:* ${company}
-👤 *Yetkili:* ${name}
-📞 *Telefon:* ${phone}
-✉️ *E-posta:* ${email}
-📦 *Hizmet Grubu:* ${selectedService}
-📝 *Talep Detayları:* ${detail}
------------------------------------------
-_SEALOR Web Sitesi Üzerinden Gönderildi_`;
+`*SEALOR HİZMET TALEBİ* (Ref: ${trackingId})
+
+• *Firma Adı:* ${company}
+• *Yetkili Ad Soyad:* ${name}
+• *Telefon:* ${phone}
+• *E-posta:* ${email}
+• *Hizmet Grubu:* ${selectedService}
+• *Talep Detayı:* ${detail}
+
+____________________________________
+_SEALOR İhracat & İthalat Ltd. Şti._`;
 
             const whatsappUrl = `https://wa.me/905010022295?text=${encodeURIComponent(message)}`;
 
