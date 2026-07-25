@@ -1824,6 +1824,7 @@
                 addressVal: "Esentepe Mah. Feza Sk. Gültekin Apartmanı No: 6 İç Kapı No: 9 Şişli / İstanbul",
                 emailLbl: "E-posta",
                 phoneLbl: "Telefon / WhatsApp",
+                whatsappFloatingBtn: "WhatsApp Destek",
                 customerSupportLbl: "Müşteri Destek Hattı",
                 footerDesc: "Küresel ticarette dijital ve fiziksel sınırları kaldıran, yenilikçi ve güvenilir çözüm ortağınız.",
                 footerQuickMenu: "Hızlı Menü",
@@ -1972,6 +1973,7 @@
                 addressVal: "Esentepe Mah. Feza Sk. Gultekin Apartmani No: 6 Internal Door No: 9 Sisli / Istanbul",
                 emailLbl: "Email",
                 phoneLbl: "Phone / WhatsApp",
+                whatsappFloatingBtn: "WhatsApp Support",
                 customerSupportLbl: "Customer Support Hotline",
                 footerDesc: "Your innovative and reliable solution partner removing digital and physical borders in global trade.",
                 footerQuickMenu: "Quick Menu",
@@ -2120,6 +2122,7 @@
                 addressVal: "حي إسنتيبه، شارع فيزا، عمارة جولتكين رقم 6، شقة 9، شيشلي / إسطنبول",
                 emailLbl: "البريد الإلكتروني",
                 phoneLbl: "الهاتف / واتساب",
+                whatsappFloatingBtn: "دعم واتساب",
                 customerSupportLbl: "خط دعم العملاء",
                 footerDesc: "شريكك المبتكر والموثوق في الحلول التي تزيل الحدود الرقمية والمادية في التجارة العالمية.",
                 footerQuickMenu: "القائمة السريعة",
@@ -2359,7 +2362,7 @@
             if (!container) {
                 container = document.createElement('div');
                 container.id = 'toast-container';
-                container.className = 'fixed bottom-6 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm';
+                container.className = 'fixed bottom-24 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm';
                 document.body.appendChild(container);
             }
             const toast = document.createElement('div');
@@ -2945,7 +2948,22 @@ _SEALOR Web Sitesi Üzerinden Gönderildi_`;
         });
     </script>
 
+    <!-- Floating WhatsApp Action Button (Mobile & Desktop) -->
+    <a href="https://wa.me/905010022295?text=Merhaba%2C%20SEALOR%20hizmetleriniz%20hakk%C4%B1nda%20detayl%C4%B1%20bilgi%20almak%20istiyorum." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 ltr:right-6 rtl:left-6 z-[160] group flex items-center gap-2.5 bg-[#25D366] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.45)] hover:bg-[#20ba5a] hover:scale-105 hover:shadow-[0_15px_30px_rgba(37,211,102,0.6)] transition-all duration-300 pointer-events-auto"
+       aria-label="WhatsApp İletişim Hattı">
+        <!-- Pulse Ring Animation -->
+        <span class="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none"></span>
+        <!-- WhatsApp Icon SVG -->
+        <svg class="w-6 h-6 fill-current relative z-10" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.474 1.333 4.988L2 22l5.233-1.371c1.459.796 3.109 1.215 4.773 1.216h.005c5.505 0 9.989-4.478 9.99-9.985.001-2.667-1.034-5.176-2.918-7.062A9.924 9.924 0 0 0 12.012 2zm.005 16.518h-.004c-1.492 0-2.955-.4-4.232-1.157l-.304-.18-3.146.824.839-3.067-.198-.315a8.303 8.303 0 0 1-1.272-4.457c.001-4.574 3.724-8.297 8.302-8.297 2.217 0 4.301.864 5.869 2.433 1.567 1.569 2.43 3.654 2.429 5.871-.002 4.575-3.725 8.298-8.282 8.298z"/>
+        </svg>
+        <span class="hidden sm:inline font-bold text-xs uppercase tracking-wider relative z-10" data-i18n="whatsappFloatingBtn">WhatsApp Destek</span>
+    </a>
+
     <!-- Toast Notification Container Element -->
-    <div id="toast-container" class="fixed bottom-6 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm"></div>
+    <div id="toast-container" class="fixed bottom-24 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm"></div>
 </body>
 </html>
