@@ -813,6 +813,29 @@
             display: inline-block;
             position: relative;
         }
+        /* Floating WhatsApp Button & Toast Container RTL / LTR Fix */
+        #whatsapp-floating-btn {
+            position: fixed !important;
+            bottom: 1.5rem !important;
+            right: 1.5rem !important;
+            left: auto !important;
+            width: fit-content !important;
+            max-width: max-content !important;
+        }
+        #toast-container {
+            position: fixed !important;
+            bottom: 6rem !important;
+            right: 1.5rem !important;
+            left: auto !important;
+        }
+        html[dir="rtl"] #whatsapp-floating-btn {
+            right: auto !important;
+            left: 1.5rem !important;
+        }
+        html[dir="rtl"] #toast-container {
+            right: auto !important;
+            left: 1.5rem !important;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary/20 selection:text-secondary">
@@ -2951,10 +2974,11 @@ _SEALOR İhracat & İthalat Ltd. Şti._`;
     </script>
 
     <!-- Floating WhatsApp Action Button (Mobile & Desktop) -->
-    <a href="https://wa.me/905010022295?text=Merhaba%2C%20SEALOR%20hizmetleriniz%20hakk%C4%B1nda%20detayl%C4%B1%20bilgi%20almak%20istiyorum." 
+    <a id="whatsapp-floating-btn"
+       href="https://wa.me/905010022295?text=Merhaba%2C%20SEALOR%20hizmetleriniz%20hakk%C4%B1nda%20detayl%C4%B1%20bilgi%20almak%20istiyorum." 
        target="_blank" 
        rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 ltr:right-6 rtl:left-6 z-[160] group flex items-center gap-2.5 bg-[#25D366] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.45)] hover:bg-[#20ba5a] hover:scale-105 hover:shadow-[0_15px_30px_rgba(37,211,102,0.6)] transition-all duration-300 pointer-events-auto"
+       class="z-[160] group flex items-center gap-2.5 bg-[#25D366] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.45)] hover:bg-[#20ba5a] hover:scale-105 hover:shadow-[0_15px_30px_rgba(37,211,102,0.6)] transition-all duration-300 pointer-events-auto"
        aria-label="WhatsApp İletişim Hattı">
         <!-- Pulse Ring Animation -->
         <span class="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none"></span>
@@ -2966,6 +2990,6 @@ _SEALOR İhracat & İthalat Ltd. Şti._`;
     </a>
 
     <!-- Toast Notification Container Element -->
-    <div id="toast-container" class="fixed bottom-24 right-6 ltr:right-6 rtl:left-6 z-[300] flex flex-col gap-3 pointer-events-none max-w-sm"></div>
+    <div id="toast-container" class="z-[300] flex flex-col gap-3 pointer-events-none max-w-sm"></div>
 </body>
 </html>
