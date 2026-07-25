@@ -2397,7 +2397,7 @@
             }, 4000);
         }
 
-        // Contact Message submission simulator
+        // Contact Message submission with WhatsApp Integration
         function handleContactSubmit(event) {
             event.preventDefault();
             const btn = event.submitter || event.target.querySelector('button[type="submit"]');
@@ -2406,14 +2406,33 @@
             btn.disabled = true;
             btn.innerHTML = `<span class="animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full"></span>`;
             
-            // Mimic back-end request latency
+            const name = document.getElementById('contact-name')?.value || 'Belirtilmedi';
+            const email = document.getElementById('contact-email')?.value || 'Belirtilmedi';
+            const phone = document.getElementById('contact-phone')?.value || 'Belirtilmedi';
+            const subject = document.getElementById('contact-subject')?.value || 'Genel İletişim';
+            const messageText = document.getElementById('contact-message')?.value || 'Belirtilmedi';
+
+            const whatsappMessage = 
+`💬 *SEALOR İLETİŞİM MESAJI*
+-----------------------------------------
+👤 *Ad Soyad:* ${name}
+📞 *Telefon:* ${phone}
+✉️ *E-posta:* ${email}
+📌 *Konu:* ${subject}
+📝 *Mesaj:* ${messageText}
+-----------------------------------------
+_SEALOR Web Sitesi İletişim Formundan Gönderildi_`;
+
+            const whatsappUrl = `https://wa.me/905010022295?text=${encodeURIComponent(whatsappMessage)}`;
+
             setTimeout(() => {
                 btn.disabled = false;
                 btn.innerHTML = originalHTML;
                 const toastMsg = translations[currentLang].toastContactSuccess;
                 showToast(toastMsg, 'success');
                 document.getElementById('contact-form').reset();
-            }, 1500);
+                window.open(whatsappUrl, '_blank');
+            }, 600);
         }
 
         // Quote Request Modal Handlers
@@ -2442,15 +2461,42 @@
             document.body.style.overflow = '';
         }
 
+        // Quote Request Modal Handler with Instant WhatsApp Integration
         function handleQuoteSubmit(event) {
             event.preventDefault();
+            
+            const selectedService = document.querySelector('input[name="quote-service"]:checked')?.value || 'Belirtilmedi';
+            const company = document.getElementById('quote-company')?.value || 'Belirtilmedi';
+            const name = document.getElementById('quote-name')?.value || 'Belirtilmedi';
+            const email = document.getElementById('quote-email')?.value || 'Belirtilmedi';
+            const phone = document.getElementById('quote-phone')?.value || 'Belirtilmedi';
+            const detail = document.getElementById('quote-detail')?.value || 'Belirtilmedi';
             const trackingId = 'SLR-' + Math.floor(100000 + Math.random() * 900000);
+
+            // Construct WhatsApp message with complete request details
+            const message = 
+`📌 *SEALOR HİZMET TALEBİ* (${trackingId})
+-----------------------------------------
+🏢 *Firma Adı:* ${company}
+👤 *Yetkili:* ${name}
+📞 *Telefon:* ${phone}
+✉️ *E-posta:* ${email}
+📦 *Hizmet Grubu:* ${selectedService}
+📝 *Talep Detayları:* ${detail}
+-----------------------------------------
+_SEALOR Web Sitesi Üzerinden Gönderildi_`;
+
+            const whatsappUrl = `https://wa.me/905010022295?text=${encodeURIComponent(message)}`;
+
             let toastMsg = translations[currentLang].toastQuoteSuccess;
             toastMsg = toastMsg.replace('{id}', trackingId);
             
             showToast(toastMsg, 'success');
             document.getElementById('quote-form').reset();
             closeQuoteModal();
+
+            // Direct user to WhatsApp with pre-filled request
+            window.open(whatsappUrl, '_blank');
         }
 
         // Onboarding Tour Modal Handlers
